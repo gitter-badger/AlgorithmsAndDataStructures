@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\testdata">
+      <UniqueIdentifier>{11186ddd-63fd-4b55-9668-44e0f920a74d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\testdata">
+      <UniqueIdentifier>{8f5557d0-0a0a-4932-b1dc-dc31a6f56744}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\algorithms">
+      <UniqueIdentifier>{6a9896be-14ac-4bff-a75a-ddb859887236}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\algorithms">
+      <UniqueIdentifier>{f4584308-dab1-47be-89b1-678699a16021}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\template">
+      <UniqueIdentifier>{cc953b7f-cbbd-46bd-bad1-c9ee4ea8d1b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\template">
+      <UniqueIdentifier>{d7a86d2b-39e5-4c17-a6ea-97b9ecf17177}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomTestData.cpp">
+      <Filter>Source Files\testdata</Filter>
+    </ClCompile>
+    <ClCompile Include="TestData.cpp">
+      <Filter>Source Files\testdata</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickUnionAlgorithm.cpp">
+      <Filter>Source Files\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickFindAlgorithm.cpp">
+      <Filter>Source Files\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="UninonFindTemplate.cpp">
+      <Filter>Source Files\template</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RandomTestData.h">
+      <Filter>Header Files\testdata</Filter>
+    </ClInclude>
+    <ClInclude Include="TestData.h">
+      <Filter>Header Files\testdata</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickUnionAlgorithm.h">
+      <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickFindAlgorithm.h">
+      <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="UninonFindTemplate.h">
+      <Filter>Header Files\template</Filter>
+    </ClInclude>
+    <ClInclude Include="IUnionFind.h">
+      <Filter>Header Files\template</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
