@@ -7,6 +7,7 @@ int main()
 {
 	QuickFindAlgorithm quickFindAlgorithm;
 
+	
 
 
 
