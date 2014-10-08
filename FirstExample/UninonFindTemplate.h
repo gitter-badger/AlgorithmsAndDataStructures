@@ -8,8 +8,19 @@
 class UnionFindTemplate : public IUninonFind
 {
 	public:
+		UnionFindTemplate(int nrNodes);
+
 		virtual bool addPair(int p, int q);
 
+		void view();
+
+		int getNrConnectedComponents();
+
 	protected:
-		std::vector<int> elements;
+		std::vector<int> id;
+		int nrNodes;
+
+	private:
+		int nrConnectedComponents;
+		int nrUnionOperations;
 };

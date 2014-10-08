@@ -81,3 +81,4 @@ namespace Test_UnionFind
 			}
 	};
 }
+

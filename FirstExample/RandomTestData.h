@@ -11,6 +11,8 @@ class RandomTestData
 
 		std::vector<std::pair<int,int>> generateTestData();
 
+		int getNrPairs() const;
+
 	private:
 		int nrElements;
 		int nrPairs;

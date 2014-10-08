@@ -47,6 +47,12 @@
     <ClCompile Include="UninonFindTemplate.cpp">
       <Filter>Source Files\template</Filter>
     </ClCompile>
+    <ClCompile Include="WeightedQuickUnion.cpp">
+      <Filter>Source Files\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="WeightedQuickUnionPathCompression.cpp">
+      <Filter>Source Files\algorithms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RandomTestData.h">
@@ -66,6 +72,12 @@
     </ClInclude>
     <ClInclude Include="IUnionFind.h">
       <Filter>Header Files\template</Filter>
+    </ClInclude>
+    <ClInclude Include="WeightedQuickUnion.h">
+      <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="WeightedQuickUnionPathCompression.h">
+      <Filter>Header Files\algorithms</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

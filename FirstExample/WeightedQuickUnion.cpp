@@ -1,13 +1,14 @@
-#include "QuickUnionAlgorithm.h"
+#include "WeightedQuickUnion.h"
 
 
 //__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-QuickUnionAlgorithm::QuickUnionAlgorithm(int nrNodes) : UnionFindTemplate(nrNodes)
+WeightedQuickUnion::WeightedQuickUnion(int nrNodes) : UnionFindTemplate(nrNodes)
 {
+
 }
 
 //__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-void QuickUnionAlgorithm::Initialize()
+void WeightedQuickUnion::Initialize()
 {
 	if(!id.empty())
 		id.clear();
@@ -17,27 +18,38 @@ void QuickUnionAlgorithm::Initialize()
 }
 
 //__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-bool QuickUnionAlgorithm::Connected(int p, int q)
+bool WeightedQuickUnion::Connected(int p, int q)
 {
-	return root(p) == root(q);
+	int temp;
+	return root(p, temp) == root(q, temp);
 }
 
 //__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-void QuickUnionAlgorithm::Union(int p, int q)
+void WeightedQuickUnion::Union(int p, int q)
 {
-	int i = root(p);
-	int j = root(q);
-	id[i] = j;
+	int sizeI;
+	int i = root(p, sizeI);
+
+	int sizeJ;
+	int j = root(q, sizeJ);
+
+	// we avoid one line trees and by balancing the tree
+	if(sizeI < sizeJ)
+		id[i] = j; // connect the small tree to the big tree
+	else
+		id[j] = i; // connect the big tree to the small tree
 }
 
 //__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-int QuickUnionAlgorithm::root(int i)
+int WeightedQuickUnion::root(int i, int& treeSize)
 {
+	treeSize = 0;
+
 	while(i != id[i])
+	{
 		i = id[i];
+		treeSize++;
+	}
 
 	return i;
 }
-
-
-
