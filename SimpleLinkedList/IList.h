@@ -14,4 +14,6 @@ class IList
 
 		// return true if it finds the node with the value of n
 		virtual bool find(int n) = 0;
+
+		virtual void reverse() = 0;
 };
