@@ -16,4 +16,6 @@ class IList
 		virtual bool find(int n) = 0;
 
 		virtual void reverse() = 0;
+
+		virtual void sort() = 0;
 };

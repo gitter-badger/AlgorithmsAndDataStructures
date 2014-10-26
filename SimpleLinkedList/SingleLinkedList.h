@@ -23,7 +23,8 @@ class SingleLinkedList : public IList
 		virtual void addFront(int n) override;
 		virtual void remove(int n) override;
 		virtual bool find(int n) override;
-		void reverse();
+		virtual void reverse() override;
+		virtual void sort() override;
 
 	private:
 		Node* head;
