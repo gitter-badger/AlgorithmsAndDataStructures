@@ -84,5 +84,7 @@ int main()
 
 	linkedList.josephusProblem(m);
 
+	std::cout << std::endl;
+
 	return 0;
 }
