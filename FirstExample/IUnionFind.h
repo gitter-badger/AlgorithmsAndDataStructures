@@ -22,4 +22,7 @@ class IUninonFind
 
 		// Shows the current status of the id[]
 		virtual void view() = 0;
+
+		// applicable for all but QuickFind algorithm
+		virtual float getAverageTreeHeight() = 0;
 };

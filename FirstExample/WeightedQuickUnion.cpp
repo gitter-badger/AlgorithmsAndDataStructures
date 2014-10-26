@@ -1,5 +1,6 @@
 #include "WeightedQuickUnion.h"
 
+#include <numeric>
 
 //__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 WeightedQuickUnion::WeightedQuickUnion(int nrNodes) : UnionFindTemplate(nrNodes)
@@ -14,42 +15,48 @@ void WeightedQuickUnion::Initialize()
 		id.clear();
 
 	for(int i=0; i<nrNodes; i++)
+	{
 		id.push_back(i);
+		sz.push_back(1); // each node has a height of 1 initially
+	}
 }
 
 //__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 bool WeightedQuickUnion::Connected(int p, int q)
 {
-	int temp;
-	return root(p, temp) == root(q, temp);
+	return root(p) == root(q);
 }
 
 //__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 void WeightedQuickUnion::Union(int p, int q)
 {
-	int sizeI;
-	int i = root(p, sizeI);
-
-	int sizeJ;
-	int j = root(q, sizeJ);
+	int i = root(p);
+	int j = root(q);
 
 	// we avoid one line trees and by balancing the tree
-	if(sizeI < sizeJ)
-		id[i] = j; // connect the small tree to the big tree
+	if(sz[i] < sz[j])
+	{
+		id[i]   = j; // connect the small tree to the big tree
+		sz[j] += sz[i];
+	}
 	else
-		id[j] = i; // connect the big tree to the small tree
+	{
+		id[j]   = i; // connect the big tree to the small tree
+		sz[i] += sz[j];
+	}
 }
 
 //__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-int WeightedQuickUnion::root(int i, int& treeSize)
+int WeightedQuickUnion::root(int i)
 {
-	treeSize = 0;
-
 	while(i != id[i])
-	{
 		i = id[i];
-		treeSize++;
-	}
 
 	return i;
+}
+
+//__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+float WeightedQuickUnion::getAverageTreeHeight()
+{
+	return static_cast<float>(std::accumulate(sz.begin(), sz.end(), 0)) / static_cast<float>(sz.size());
 }

@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <chrono>
+#include <tuple>
 
 
 template<typename A>
@@ -47,7 +48,7 @@ void interractiveAlgorithmTest()
 }
 
 template<typename A>
-float analyzePerformance(std::vector<std::pair<int,int>>& testData, int nrNodes)
+std::tuple<float, float> analyzePerformance(std::vector<std::pair<int,int>>& testData, int nrNodes)
 {
 	std::unique_ptr<IUninonFind> unionFindAlgorithm = std::make_unique<A>(nrNodes);
 
@@ -57,29 +58,45 @@ float analyzePerformance(std::vector<std::pair<int,int>>& testData, int nrNodes)
 	for(auto& pqPair : testData)
 		unionFindAlgorithm->addPair(pqPair.first, pqPair.second);
 
-	auto end = std::chrono::system_clock::now();
+	auto end     = std::chrono::system_clock::now();
 	auto elapsed = end - start;
 
-	return std::chrono::duration_cast<std::chrono::milliseconds>(elapsed).count();
+
+	float duration          = std::chrono::duration_cast<std::chrono::milliseconds>(elapsed).count();
+	float averageTreeHeight = unionFindAlgorithm->getAverageTreeHeight();
+
+	return std::make_tuple(duration, averageTreeHeight);
+}
+
+void performanceAnalyzer()
+{
+	int nrNodes = 100000;
+	__int32 nrPairs = 10000;
+	std::cout << "Generating data...";
+	RandomTestData randomTestData(nrNodes - 1, nrPairs);
+	auto data = randomTestData.generateTestData();
+	std::cout << "DONE!";
+
+
+	float duration, averageTreeHeight;
+
+	std::tie(duration, averageTreeHeight) = analyzePerformance<WeightedQuickUnion>(data, nrNodes);
+	std::cout << "\nWeightedQuickUnion: "; std::cout << duration << "ms treeHeight: " << averageTreeHeight;
+
+	std::tie(duration, averageTreeHeight) = analyzePerformance<WeightedQuickUnionPathCompression>(data, nrNodes);
+	std::cout << "\nWeightedQuickUnionPathCompression: "; std::cout << duration << "ms treeHeight: " << averageTreeHeight;
+	//std::cout << "\nQuickUnionAlgorithm: "; std::cout << analyzePerformance<QuickUnionAlgorithm>(data, nrNodes);
+	//std::cout << "\nQuickFindAlgorithm: "; std::cout << analyzePerformance<QuickFindAlgorithm>(data, nrNodes);
+
+	std::cout << std::endl << std::endl;
 }
 
 int main()
 {
-	//interractiveAlgorithmTest<QuickUnionAlgorithm>();
+	interractiveAlgorithmTest<WeightedQuickUnionPathCompression>();
+	//performanceAnalyzer();
 
-	int nrNodes = 1000;
-	int nrPairs = 10000;
-	std::cout << "Generating data...";
-	RandomTestData randomTestData(nrNodes-1, nrPairs);
-	auto data = randomTestData.generateTestData();
-	std::cout << "DONE!";
-
-	std::cout << "\nWeightedQuickUnionPathCompression: "; std::cout << analyzePerformance<WeightedQuickUnionPathCompression>(data, nrNodes);
-	std::cout << "\nWeightedQuickUnion: "; std::cout << analyzePerformance<WeightedQuickUnion>(data, nrNodes);
-	std::cout << "\nQuickUnionAlgorithm: "; std::cout << analyzePerformance<QuickUnionAlgorithm>(data, nrNodes);
-	std::cout << "\nQuickFindAlgorithm: "; std::cout << analyzePerformance<QuickFindAlgorithm>(data, nrNodes);
-
-	std::cout << std::endl << std::endl;
+	
 
 	return 0;
 }

@@ -16,4 +16,5 @@ class QuickUnionAlgorithm : public UnionFindTemplate
 
 	private:
 		int root(int i);
+
 };

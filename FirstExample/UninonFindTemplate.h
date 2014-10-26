@@ -16,6 +16,8 @@ class UnionFindTemplate : public IUninonFind
 
 		int getNrConnectedComponents();
 
+		float getAverageTreeHeight();
+
 	protected:
 		std::vector<int> id;
 		int nrNodes;
