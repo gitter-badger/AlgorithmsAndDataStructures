@@ -2,13 +2,14 @@
 
 namespace linkedlist
 {
+	template<typename T>
 	class Node
 	{
 		public:
-			inline Node(int data, Node* next = nullptr, Node* prev = nullptr) : data(data), next(next), prev(prev)	{ }
+			inline Node(T data, Node* next = nullptr, Node* prev = nullptr) : data(data), next(next), prev(prev) { }
 
 		public:
-			int data;
+			T data;
 			Node* next;
 			Node* prev; // optional. Used only for double linked lists
 	};
