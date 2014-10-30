@@ -12,6 +12,4 @@ namespace linkedlist
 			Node* next;
 			Node* prev; // optional. Used only for double linked lists
 	};
-
-
 }
