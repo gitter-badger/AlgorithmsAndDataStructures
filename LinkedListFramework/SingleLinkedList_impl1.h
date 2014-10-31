@@ -24,9 +24,12 @@ template<typename T> class LinkedList
 			head = nullptr;
 			init(elements);
 		}
+		LinkedList(Node<T>* head) : head(head) 
+		{
+
+		}
 		~LinkedList()
 		{
-			clear();
 		}
 		void init(const std::vector<T>& elements)
 		{
@@ -111,7 +114,7 @@ template<typename T> class LinkedList
 				else
 					prevNode->next = currNode->next;
 		}
-		void insertSorted(const T& element)
+		void addSorted(const T& element)
 		{
 			// special case. If the list is empty
 			if(!head)
@@ -147,29 +150,14 @@ template<typename T> class LinkedList
 		}
 		void removeDuplicates()
 		{
-			for(Node<T>* n = head; n->next != nullptr; n = n->next)
+			Node<T>* node = head;
+
+			while(node->next)
 			{
-				Node<T>* temp = n->next;
-				Node<T>* prev = n;
-				while(temp->data == n->data)
-				{
-					prev = temp;
-					temp = temp->next;
-
-					if(!temp->next)
-						break;
-				}
-
-				// Make sure that if we are the end we exit the loop.
-				// otherwise we would have nullptr->next causing a crash
-				if(!temp->next)
-				{
-					n->next = nullptr;
-					break;
-				}
+				if(node->data == node->next->data)
+					node->next = node->next->next;
 				else
-					if(temp != prev)
-						n->next = prev->next;
+					node = node->next;
 			}
 		}
 		T findMiddle()
@@ -185,6 +173,41 @@ template<typename T> class LinkedList
 			}
 
 			return slow->data;
+		}
+
+		int loop()
+		{
+			Node<T>* slow = head;
+			Node<T>* fast = head;
+
+			while(true)
+			{
+				if(!fast)
+					return -1;
+
+				fast = fast->next;
+
+				if(!fast)
+					return -1;
+
+				fast = fast->next;
+				slow = slow->next;
+
+				if(fast == slow)
+				{
+					int size = 0;
+					do
+					{
+						fast = fast->next->next;
+						slow = slow->next;
+						size++;
+					}
+					while(fast != slow);
+					return size;
+				}
+			}
+
+			return -1;
 		}
 
 	private:

@@ -58,7 +58,7 @@ int loop(Node<T>* head)
 
 int main()
 {
-	Node<int> n1(1), n2(2), n3(3), n4(4),n5(5), n6(6), n7(7);
+	Node<int> n1(1), n2(2), n3(3), n4(4), n5(5), n6(6), n7(7);
 
 	n1.next = &n2;
 	n2.next = &n3;
@@ -66,10 +66,12 @@ int main()
 	n4.next = &n5;
 	n5.next = &n6;
 	n6.next = &n7;
-	n7.next = &n7;
+	n7.next = &n4; // loop
 
-	//view<int>(&n1);
-	std::cout << "loop: " << loop<int>(&n1) << "\n";
+	LinkedList<int> list(&n1);
+
+	std::cout << "loop: " << list.loop() << "\n";
+
 
 	std::cout << "\n\n";
 	return 0;

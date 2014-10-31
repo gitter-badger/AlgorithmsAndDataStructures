@@ -20,7 +20,7 @@ template<typename T> class LinkedList
 
 		}
 
-		void view()
+		void view() 
 		{
 			std::cout << "head <-> ";
 			for(Node<T>* n = head; n != nullptr; n = n->next)
