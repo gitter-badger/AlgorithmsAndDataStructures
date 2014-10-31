@@ -1,27 +1,28 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 
-#include "..\LinkedListFramework\SingleLinkedList.h"
+#include "..\LinkedListFramework\SingleLinkedList_impl1.h"
 
 #include <vector>
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+using namespace linkedlist::singly::impl1;
 
 namespace TestLinkedListFramework
 {		
-	TEST_CLASS(BasicOperations)
+	TEST_CLASS(SingleLinkedList_impl1)
 	{
 		public:
 			TEST_METHOD(init)
 			{
-				linkedlist::SingleLinkedList<int> list1({1,2,3});
+				LinkedList<int> list1({1, 2, 3});
 				areEqual<int>(list1, {1, 2, 3});
 			}
 
 			TEST_METHOD(addFront)
 			{
-				linkedlist::SingleLinkedList<int> list;
+				LinkedList<int> list;
 				list.addFront(1);
 				list.addFront(2);
 				list.addFront(3);
@@ -32,8 +33,8 @@ namespace TestLinkedListFramework
 			TEST_METHOD(length)
 			{
 				int nrElements = 10;
-				linkedlist::SingleLinkedList<int> list;
-				for (int i = 0; i < nrElements ; i++)
+				LinkedList<int> list;
+				for(int i = 0; i < nrElements; i++)
 					list.addFront(i);
 
 				Assert::IsTrue(list.length() == nrElements);
@@ -41,7 +42,7 @@ namespace TestLinkedListFramework
 
 			TEST_METHOD(clear)
 			{
-				linkedlist::SingleLinkedList<int> list;
+				LinkedList<int> list;
 				list.addFront(1);
 				list.addFront(2);
 				list.addFront(3);
@@ -54,7 +55,7 @@ namespace TestLinkedListFramework
 
 			TEST_METHOD(addBack)
 			{
-				linkedlist::SingleLinkedList<int> list;
+				LinkedList<int> list;
 				list.addBack(1);
 				list.addBack(2);
 				list.addBack(3);
@@ -64,15 +65,15 @@ namespace TestLinkedListFramework
 
 			TEST_METHOD(remove1stElement)
 			{
-				linkedlist::SingleLinkedList<int> list({1, 2, 3});
+				LinkedList<int> list({1, 2, 3});
 				list.remove(1);
 
-				areEqual<int>(list, {2,3});
+				areEqual<int>(list, {2, 3});
 			}
 
 			TEST_METHOD(removeLastElement)
 			{
-				linkedlist::SingleLinkedList<int> list({1, 2, 3});
+				LinkedList<int> list({1, 2, 3});
 				list.remove(3);
 
 				areEqual<int>(list, {1, 2});
@@ -80,7 +81,7 @@ namespace TestLinkedListFramework
 
 			TEST_METHOD(removeRandomElement)
 			{
-				linkedlist::SingleLinkedList<int> list({1, 2, 3});
+				LinkedList<int> list({1, 2, 3});
 				list.remove(2);
 
 				areEqual<int>(list, {1, 3});
@@ -88,7 +89,7 @@ namespace TestLinkedListFramework
 
 			TEST_METHOD(removeNotFoundElement)
 			{
-				linkedlist::SingleLinkedList<int> list({1, 2, 3});
+				LinkedList<int> list({1, 2, 3});
 				list.remove(4);
 
 				areEqual<int>(list, {1, 2, 3});
@@ -96,7 +97,7 @@ namespace TestLinkedListFramework
 
 			TEST_METHOD(removeAll)
 			{
-				linkedlist::SingleLinkedList<int> list({1, 2, 3});
+				LinkedList<int> list({1, 2, 3});
 				list.remove(1);
 				list.remove(2);
 				list.remove(3);
@@ -107,7 +108,7 @@ namespace TestLinkedListFramework
 
 		private:
 			template<typename T>
-			bool areEqual(linkedlist::SingleLinkedList<T>& list, const std::vector<T>& vector)
+			bool areEqual(LinkedList<T>& list, const std::vector<T>& vector)
 			{
 				std::vector<T> flat = list.flatten();
 
