@@ -174,17 +174,17 @@ template<typename T> class LinkedList
 		}
 		T findMiddle()
 		{
-			Node<T>* curr       = head;
-			Node<T>* doubleSkip = head;
+			Node<T>* slow = head;
+			Node<T>* fast = head;
 
 			// order is very important. it is evaluated left -> right
-			while(doubleSkip->next && doubleSkip->next->next)
+			while(fast->next && fast->next->next)
 			{
-				curr = curr->next;
-				doubleSkip = doubleSkip->next->next;
+				slow = slow->next;
+				fast = fast->next->next;
 			}
 
-			return curr->data;
+			return slow->data;
 		}
 
 	private:
