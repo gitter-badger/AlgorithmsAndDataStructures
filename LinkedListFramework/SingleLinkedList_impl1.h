@@ -111,30 +111,34 @@ template<typename T> class LinkedList
 				else
 					prevNode->next = currNode->next;
 		}
-
 		void insertSorted(const T& element)
 		{
+			// special case. If the list is empty
 			if(!head)
 			{
 				addFront(element);
 				return;
 			}
 
+			// create the new node
 			Node<T>* newNode = new Node<T>(element);
 
 			Node<T>* node = head;
 			Node<T>* prev = node;
+			// search where it has to be introduced
 			while(node != nullptr && newNode->data > node->data)
 			{
 				prev = node;
 				node = node->next;
 			}
 
+			// special case if it is the first element
 			if(node == head)
 			{
 				newNode->next = head;
 				head = newNode;
 			}
+			// handle the other cases
 			else
 			{
 				newNode->next = prev->next;
@@ -142,6 +146,32 @@ template<typename T> class LinkedList
 			}
 		}
 		
+		void removeDuplicates()
+		{
+			for(Node<T>* n = head; n->next != nullptr; n = n->next)
+			{
+				Node<T>* temp = n->next;
+				Node<T>* prev = n;
+				while(temp->data == n->data)
+				{
+					prev = temp;
+					temp = temp->next;
+
+					if(!temp->next)
+						break;
+				}
+
+				if(!temp->next)
+				{
+					n->next = nullptr;
+					break;
+				}
+				else
+					if(temp != prev)
+						n->next = prev->next;
+			}
+		}
+
 
 	private:
 		Node<T>* head;			

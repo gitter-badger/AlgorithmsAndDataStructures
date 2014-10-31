@@ -15,13 +15,20 @@ using namespace linkedlist::singly::impl1; // impl1: head + null tail
 int main()
 {
 	LinkedList<int> list;
-	list.addFront(50);
-	list.addFront(40);
-	list.addFront(30);
-	list.addFront(20);
-	list.addFront(10);
-	list.insertSorted(1);
 
+	list.addBack(1);
+	list.addBack(1);
+	list.addBack(2);
+	list.addBack(2);
+	list.addBack(3);
+	list.addBack(4);
+	list.addBack(4);
+	list.addBack(5);
+	list.addBack(5);
+	list.addBack(5);
+
+	list.view();
+	list.removeDuplicates();
 	list.view();
 
 	std::cout << "\n\n";
