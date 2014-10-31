@@ -8,13 +8,13 @@
 int main()
 {
 	int nrElements = 20;
-	std::unique_ptr<IList> linkedList = std::make_unique<SingleLinkedList>();
+	SingleLinkedList linkedList;
 
 	for(int i = 0; i < nrElements; i++)
-		linkedList->addFront(i);
+		linkedList.addFront(i);
 
-	linkedList->reverse();
-	linkedList->view();
+	//linkedList.reverse();
+	linkedList.viewReversed();
 
 
 

@@ -19,9 +19,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SingleLinkedList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -39,6 +36,9 @@
     </ClInclude>
     <ClInclude Include="IViewOperations.h">
       <Filter>Header Files\operations</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleLinkedList_impl1.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

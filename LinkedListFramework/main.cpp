@@ -1,16 +1,20 @@
-#include "SingleLinkedList.h"
+#include "SingleLinkedList_impl1.h"
 
 #include <iostream>
+#include <vector>
+#include <string>
 
+using namespace linkedlist::single::impl1; // impl1: head + null tail
+//using namespace linkedlist::single::impl2; // impl2: head + tail
+//using namespace linkedlist::single::impl3; // impl3: dummy head + tail
 
 int main()
 {
-	linkedlist::SingleLinkedList<int> list({1, 1, 3});
+	LinkedList<int> list;
+	list.addBack(1);
+	list.addBack(2);
+	list.addBack(3);
 
-	list.remove(4);
-
-	list.view();
-
-
+	std::cout << "\n\n";
 	return 0;
 }

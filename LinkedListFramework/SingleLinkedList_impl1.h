@@ -7,21 +7,25 @@
 
 namespace linkedlist
 {
-template<typename T> class SingleLinkedList
+namespace single
+{
+namespace impl1
+{
+template<typename T> class LinkedList
 {
 	public:
-		SingleLinkedList() : head(nullptr)
+		LinkedList() : head(nullptr)
 		{
 
 		}
 
-		SingleLinkedList(const std::vector<T>& elements) 
+		LinkedList(const std::vector<T>& elements) 
 		{
 			head = nullptr;
 			init(elements);
 		}
 
-		~SingleLinkedList()
+		~LinkedList()
 		{
 			clear();
 		}
@@ -53,8 +57,10 @@ template<typename T> class SingleLinkedList
 
 		void view()
 		{
+			std::cout << "head -> ";
 			for(Node<T>* n = head; n != nullptr; n = n->next)
-				std::cout << std::endl << n->data;
+				std::cout << n->data << " -> ";
+			std::cout << "nullptr" << "\n";
 		}
 
 		void addFront(const T& element)
@@ -118,4 +124,7 @@ template<typename T> class SingleLinkedList
 	private:
 		Node<T>* head;			
 };
-}
+
+} // namespace impl1
+} // namespace single
+} // namespace linkedlist

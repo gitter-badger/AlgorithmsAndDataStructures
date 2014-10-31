@@ -26,6 +26,9 @@ class SingleLinkedList : public IList
 		virtual void reverse() override;
 		virtual void sort() override;
 
+		void viewReversed();
+		void helperViewReversed(Node* root);
+
 	private:
 		Node* head;
 };
