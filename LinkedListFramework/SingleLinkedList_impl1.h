@@ -176,19 +176,11 @@ template<typename T> class LinkedList
 		{
 			Node<T>* curr       = head;
 			Node<T>* doubleSkip = head;
-			Node<T>* prev       = curr;
 
-			while(doubleSkip)
+			// order is very important. it is evaluated left -> right
+			while(doubleSkip->next && doubleSkip->next->next)
 			{
-				prev = curr;
 				curr = curr->next;
-
-				if(!doubleSkip)
-					break;
-
-				if(!doubleSkip->next)
-					break;
-
 				doubleSkip = doubleSkip->next->next;
 			}
 

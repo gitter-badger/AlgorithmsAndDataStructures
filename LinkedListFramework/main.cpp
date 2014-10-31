@@ -15,7 +15,7 @@ using namespace linkedlist::singly::impl1; // impl1: head + null tail
 int main()
 {
 	LinkedList<int> list;
-	int nrElements = 2;
+	int nrElements = 11;
 	for(int i = 0; i < nrElements; i++)
 		list.addBack(i);
 
