@@ -78,6 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DoublyLinkedList_impl1.h" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

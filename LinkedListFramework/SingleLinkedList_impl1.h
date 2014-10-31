@@ -5,9 +5,10 @@
 #include <iostream>
 #include <vector>
 
+
 namespace linkedlist
 {
-namespace single
+namespace singly
 {
 namespace impl1
 {

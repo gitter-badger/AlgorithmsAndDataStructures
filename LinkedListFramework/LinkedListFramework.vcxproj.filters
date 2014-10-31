@@ -12,10 +12,19 @@
     <Filter Include="Header Files\operations">
       <UniqueIdentifier>{ef92a6b5-f6e7-415d-b467-a5e69595bb07}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\singly linked list">
+      <UniqueIdentifier>{e6666f0b-dbf1-48ef-9e7a-20deab989176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\doubly linked list">
+      <UniqueIdentifier>{b4a43d9c-eb8c-46cf-a65a-92ff077aabc1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DoublyLinkedList_impl1.h">
+      <Filter>Header Files\doubly linked list</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -38,7 +47,7 @@
       <Filter>Header Files\operations</Filter>
     </ClInclude>
     <ClInclude Include="SingleLinkedList_impl1.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\singly linked list</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
