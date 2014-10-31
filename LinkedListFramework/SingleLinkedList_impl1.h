@@ -145,7 +145,6 @@ template<typename T> class LinkedList
 				prev->next = newNode;
 			}
 		}
-		
 		void removeDuplicates()
 		{
 			for(Node<T>* n = head; n->next != nullptr; n = n->next)
@@ -161,6 +160,8 @@ template<typename T> class LinkedList
 						break;
 				}
 
+				// Make sure that if we are the end we exit the loop.
+				// otherwise we would have nullptr->next causing a crash
 				if(!temp->next)
 				{
 					n->next = nullptr;
@@ -171,7 +172,28 @@ template<typename T> class LinkedList
 						n->next = prev->next;
 			}
 		}
+		T findMiddle()
+		{
+			Node<T>* curr       = head;
+			Node<T>* doubleSkip = head;
+			Node<T>* prev       = curr;
 
+			while(doubleSkip)
+			{
+				prev = curr;
+				curr = curr->next;
+
+				if(!doubleSkip)
+					break;
+
+				if(!doubleSkip->next)
+					break;
+
+				doubleSkip = doubleSkip->next->next;
+			}
+
+			return curr->data;
+		}
 
 	private:
 		Node<T>* head;			

@@ -15,21 +15,11 @@ using namespace linkedlist::singly::impl1; // impl1: head + null tail
 int main()
 {
 	LinkedList<int> list;
+	int nrElements = 2;
+	for(int i = 0; i < nrElements; i++)
+		list.addBack(i);
 
-	list.addBack(1);
-	list.addBack(1);
-	list.addBack(2);
-	list.addBack(2);
-	list.addBack(3);
-	list.addBack(4);
-	list.addBack(4);
-	list.addBack(5);
-	list.addBack(5);
-	list.addBack(5);
-
-	list.view();
-	list.removeDuplicates();
-	list.view();
+	std::cout << "Middle: " << list.findMiddle() << "\n";
 
 	std::cout << "\n\n";
 	return 0;
