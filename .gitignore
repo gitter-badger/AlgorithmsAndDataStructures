@@ -1,0 +1,7 @@
+*.tlog
+*.pdb
+*.log
+*.opensdf
+*.sdf
+*.suo
+*Debug*
