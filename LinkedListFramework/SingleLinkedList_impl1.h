@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include "Node.h"
@@ -155,7 +156,11 @@ template<typename T> class LinkedList
 			while(node->next)
 			{
 				if(node->data == node->next->data)
+				{	
+					Node<T>* toDelete = node->next;
 					node->next = node->next->next;
+					delete toDelete;
+				}
 				else
 					node = node->next;
 			}
@@ -174,7 +179,34 @@ template<typename T> class LinkedList
 
 			return slow->data;
 		}
+		Node<T>* findLoppNode()
+		{
+			Node<T>* fast = head;
+			Node<T>* slow = head;
 
+			do 
+			{
+				if(!fast)
+					return nullptr;
+
+				if(!fast->next)
+					return nullptr;
+
+				fast = fast->next->next;
+				slow = slow->next;
+
+			} while ( fast != slow);
+
+			slow = head;
+
+			do 
+			{
+				slow = slow->next;
+				fast = fast->next;
+			} while (slow != fast);
+
+			return fast;
+		}
 		int loop()
 		{
 			Node<T>* slow = head;
@@ -209,6 +241,36 @@ template<typename T> class LinkedList
 
 			return -1;
 		}
+
+		void bubbleSort()
+		{
+			for(int i = 0; i < length(); i++)
+			{
+				Node<T>* curr = head;
+				Node<T>* prev = curr;
+
+				while(curr->next)
+				{
+					if(curr->data > curr->next->data)
+					{
+						if(curr == head)
+						{
+							head->next = curr->next;
+							curr->next = head;
+							head = curr;
+						}
+						else
+						{
+							prev->next = curr->next;
+							curr->next = curr;
+						}
+					}
+
+					prev = curr;
+					curr = curr->next;
+				}
+			}
+		}	
 
 	private:
 		Node<T>* head;			

@@ -248,6 +248,26 @@ namespace TestLinkedListFramework
 				LinkedList<int> list(&n1);
 				Assert::IsTrue(list.loop() != 0);
 			}
+
+			BEGIN_TEST_METHOD_ATTRIBUTE(loopStartDetection)
+				TEST_METHOD_ATTRIBUTE(L"functionality", L"loop")
+			END_TEST_METHOD_ATTRIBUTE()
+			TEST_METHOD(loopStartDetection)
+			{
+				Node<int> n1(1), n2(2), n3(3), n4(4), n5(5), n6(6), n7(7);
+
+				n1.next = &n2;
+				n2.next = &n3;
+				n3.next = &n4;
+				n4.next = &n5;
+				n5.next = &n6;
+				n6.next = &n7;
+				n7.next = &n4;
+
+				LinkedList<int> list(&n1);
+				Assert::IsTrue(list.findLoppNode() == &n4);
+				Assert::IsFalse(list.findLoppNode() == &n3);
+			}
 			
 			BEGIN_TEST_METHOD_ATTRIBUTE(loopSizeDetection)
 				TEST_METHOD_ATTRIBUTE(L"functionality", L"loop")
