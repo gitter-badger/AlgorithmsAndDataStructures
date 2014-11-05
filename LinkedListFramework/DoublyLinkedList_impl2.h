@@ -28,6 +28,23 @@ template<typename T> class LinkedList
 			}
 		}
 
+		void addBack(const T& element)
+		{
+			Node<T>* newNode = new Node<T>(element);
+
+			if(!head)
+			{
+				head = newNode;
+				tail = head;
+			}
+			else
+			{
+				newNode->prev = tail;
+				tail->next = newNode;
+				tail = newNode;
+			}
+		}
+
 		void view()
 		{
 			std::cout << "head -> ";

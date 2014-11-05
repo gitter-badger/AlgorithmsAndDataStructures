@@ -15,10 +15,10 @@ using namespace linkedlist::doubly::impl2;
 int main()
 {
 	LinkedList<int> list;
-	list.addFront(1);
-	list.addFront(2);
-	list.addFront(3);
-	list.addFront(4);
+	list.addBack(1);
+	list.addBack(2);
+	list.addBack(3);
+	list.addBack(4);
 
 	list.view();
 	std::cout << "\n";
