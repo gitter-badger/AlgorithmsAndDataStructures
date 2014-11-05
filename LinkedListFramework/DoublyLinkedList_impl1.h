@@ -6,12 +6,8 @@
 #include <vector>
 
 
-namespace linkedlist
-{
-namespace doubly
-{
-namespace impl1
-{
+namespace linkedlist { namespace doubly { namespace impl1 {
+
 template<typename T> class LinkedList
 {
 	public:

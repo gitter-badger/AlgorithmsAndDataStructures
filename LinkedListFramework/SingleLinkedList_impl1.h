@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include "Node.h"
@@ -7,12 +6,8 @@
 #include <vector>
 
 
-namespace linkedlist
-{
-namespace singly
-{
-namespace impl1
-{
+namespace linkedlist { namespace singly { namespace impl1 {
+
 template<typename T> class LinkedList
 {
 	public:

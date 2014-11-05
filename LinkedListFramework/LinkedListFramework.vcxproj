@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -82,6 +82,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DoublyLinkedList_impl2.h" />
     <ClInclude Include="IInsertOperations.h" />
     <ClInclude Include="IListsOperations.h" />
     <ClInclude Include="IRemoveOperations.h" />
@@ -89,6 +90,7 @@
     <ClInclude Include="IViewOperations.h" />
     <ClInclude Include="SingleLinkedList_impl1.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="SIngleLinkedList_impl2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

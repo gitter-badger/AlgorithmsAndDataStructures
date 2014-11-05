@@ -49,5 +49,11 @@
     <ClInclude Include="SingleLinkedList_impl1.h">
       <Filter>Header Files\singly linked list</Filter>
     </ClInclude>
+    <ClInclude Include="SIngleLinkedList_impl2.h">
+      <Filter>Header Files\singly linked list</Filter>
+    </ClInclude>
+    <ClInclude Include="DoublyLinkedList_impl2.h">
+      <Filter>Header Files\doubly linked list</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
