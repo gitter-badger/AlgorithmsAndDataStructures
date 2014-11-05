@@ -20,6 +20,8 @@ int main()
 	list.addBack(3);
 	list.addBack(4);
 
+	list.remove(2);
+
 	list.view();
 	std::cout << "\n";
 	list.viewReverse();

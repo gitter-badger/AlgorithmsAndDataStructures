@@ -11,6 +11,59 @@ template<typename T> class LinkedList
 			tail = head;
 		}
 
+		void removeFront()
+		{
+			if(!head)
+				return; 
+
+			Node<T>* toRemove = head;
+			head = head->next;
+
+			delete toRemove;
+		}
+
+		void removeBack()
+		{
+			if(!tail)
+				return;
+
+			if(tail == head)
+			{
+				delete head;
+				tail = head = nullptr;
+				return;
+			}
+
+			Node<T>* toRemove = tail;
+
+			tail = tail->prev;
+			tail->next = nullptr;
+
+			delete toRemove;
+		}
+
+		void remove(const T& element)
+		{
+			Node<T>* n = head;
+
+			while(n != nullptr && n->data != element)
+				n = n->next;
+
+			if(n == head)
+				removeFront();
+			else 
+				if(n == tail)
+					removeBack();
+				else
+				{
+					Node<T>* toRemove = n;
+					n->next->prev = n->prev;
+					n->prev->next = n->next;
+
+					delete toRemove;
+				}
+		}
+
 		void addFront(const T& element)
 		{
 			Node<T>* newNode = new Node<T>(element);
