@@ -15,8 +15,17 @@ template<typename T> class LinkedList
 		{
 			Node<T>* newNode = new Node<T>(element);
 
-			newNode->next = head;
-			head = newNode;
+			if(!head)
+			{
+				head = newNode;
+				tail = head;
+			}
+			else
+			{
+				newNode->next = head;
+				head->prev = newNode;
+				head = newNode;
+			}
 		}
 
 		void view()
