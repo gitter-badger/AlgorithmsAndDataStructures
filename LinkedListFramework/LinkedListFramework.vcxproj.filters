@@ -55,5 +55,8 @@
     <ClInclude Include="DoublyLinkedList_impl2.h">
       <Filter>Header Files\doubly linked list</Filter>
     </ClInclude>
+    <ClInclude Include="SingleLinkedList_impl3.h">
+      <Filter>Header Files\singly linked list</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

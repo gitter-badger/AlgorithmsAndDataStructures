@@ -16,6 +16,13 @@ template<typename T> class LinkedList
 			if(!head)
 				return; 
 
+			if(tail == head)
+			{
+				delete tail;
+				head = tail = nullptr;
+				return;
+			}
+
 			Node<T>* toRemove = head;
 			head = head->next;
 

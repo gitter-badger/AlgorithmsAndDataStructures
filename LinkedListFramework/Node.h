@@ -8,6 +8,7 @@ namespace linkedlist
 		class Node
 		{
 			public:
+				inline Node() : next(nullptr) { } 
 				inline Node(T data, Node* next = nullptr) : data(data), next(next) { }
 
 			public:
@@ -22,6 +23,7 @@ namespace linkedlist
 		class Node
 		{
 			public:
+				inline Node() : next(nullptr), prev(nullptr) { } 
 				inline Node(T data, Node* next = nullptr, Node* prev = nullptr) : data(data), next(next), prev(prev) { }
 
 			public:
