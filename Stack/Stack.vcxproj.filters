@@ -29,6 +29,9 @@
     <ClCompile Include="ArrayStack.cpp">
       <Filter>Source Files\stack\implementations</Filter>
     </ClCompile>
+    <ClCompile Include="LinkedListStack.cpp">
+      <Filter>Source Files\stack\implementations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayStack.h">
@@ -36,6 +39,9 @@
     </ClInclude>
     <ClInclude Include="IStack.h">
       <Filter>Header Files\stack</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedListStack.h">
+      <Filter>Header Files\stack\implementations</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

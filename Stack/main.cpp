@@ -1,8 +1,11 @@
 #include "IStack.h"
 #include "ArrayStack.h"
+#include "LinkedListStack.h"
 
 #include <iostream>
 #include <string>
+#include <stack>
+
 
 //================================================================================================================================================================================================================================================================
 namespace convert
@@ -15,7 +18,7 @@ namespace convert
 			return -1;
 	}
 
-	int evaluate(int a, int b, char operation)
+	int compute(int a, int b, char operation)
 	{
 		int result = 0;
 
@@ -36,15 +39,38 @@ namespace convert
 }
 
 //================================================================================================================================================================================================================================================================
+std::string infixToPostfix(const std::string& infixExpression)
+{
+	std::stack<char> expression;
+	for(auto ch : infixExpression)
+	{
+		if(ch == ')')
+		{
+			std::cout << " " << expression.top();
+			expression.pop();
+		}
+
+		if(ch == '*' || ch == '/' || ch == '-' || ch == '+')
+			expression.push(ch);
+
+		if(isdigit(ch))
+			std::cout << " " << ch;
+	}
+
+	return "none";
+}
+
+//================================================================================================================================================================================================================================================================
 int evaluatePostfixExpression(const std::string& expression)
 {
-	ArrayStack stack(expression.size());
+	//ArrayStack stack(expression.size() + 1);
+	LinkedListStack stack;
 
 	for(auto ch : expression)
 		if(isdigit(ch))
 			stack.push(convert::to_int(ch));
 		else
-			stack.push(convert::evaluate(stack.pop(), stack.pop(), ch));
+			stack.push(convert::compute(stack.pop(), stack.pop(), ch));
 
 	return stack.top();
 }
@@ -53,6 +79,8 @@ int evaluatePostfixExpression(const std::string& expression)
 int main()
 {
 	std::cout << std::endl << evaluatePostfixExpression("598+46**7+*");
+
+	//infixToPostfix("5*(((9+8)*(4*6))+7)");
 
 	return 0;
 }
