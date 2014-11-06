@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DoublyLinkedList_impl2.h" />
+    <ClInclude Include="DoublyLinkedList_impl3.h" />
     <ClInclude Include="IInsertOperations.h" />
     <ClInclude Include="IListsOperations.h" />
     <ClInclude Include="IRemoveOperations.h" />
