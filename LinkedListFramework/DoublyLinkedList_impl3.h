@@ -41,7 +41,17 @@ template<typename T> class LinkedList
 
 		void addBack(const T& element)
 		{
-		
+			if(header->next == trail)
+				addFront(element);
+			else
+			{
+				Node<T>* newNode = new Node<T>(element);
+
+				newNode->next     = trail;
+				newNode->prev     = trail->prev;
+				trail->prev->next = newNode;
+				trail->prev       = newNode;
+			}
 		}
 
 		void view()
