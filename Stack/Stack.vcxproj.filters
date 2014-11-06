@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\stack">
+      <UniqueIdentifier>{0bc3236a-a2f2-477b-b2b5-beab4ae427af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\stack">
+      <UniqueIdentifier>{5810fcfe-a7ad-4209-8c16-ee9773cf134e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\stack\implementations">
+      <UniqueIdentifier>{d4ff2212-639d-444d-9395-8615950c5aae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\stack\implementations">
+      <UniqueIdentifier>{95754fc9-3e1d-4353-b96d-6018f59b8d21}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrayStack.cpp">
+      <Filter>Source Files\stack\implementations</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArrayStack.h">
+      <Filter>Header Files\stack\implementations</Filter>
+    </ClInclude>
+    <ClInclude Include="IStack.h">
+      <Filter>Header Files\stack</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

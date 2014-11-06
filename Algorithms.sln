@@ -79,6 +79,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "linked list framework", "li
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestLinkedListFramework", "TestLinkedListFramework\TestLinkedListFramework.vcxproj", "{77F816A3-EE0C-4E1E-AB29-B3F625745954}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stack", "Stack\Stack.vcxproj", "{EAC83283-1A3F-48D5-AD92-74854021F829}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -121,6 +123,10 @@ Global
 		{77F816A3-EE0C-4E1E-AB29-B3F625745954}.Debug|Win32.Build.0 = Debug|Win32
 		{77F816A3-EE0C-4E1E-AB29-B3F625745954}.Release|Win32.ActiveCfg = Release|Win32
 		{77F816A3-EE0C-4E1E-AB29-B3F625745954}.Release|Win32.Build.0 = Release|Win32
+		{EAC83283-1A3F-48D5-AD92-74854021F829}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EAC83283-1A3F-48D5-AD92-74854021F829}.Debug|Win32.Build.0 = Debug|Win32
+		{EAC83283-1A3F-48D5-AD92-74854021F829}.Release|Win32.ActiveCfg = Release|Win32
+		{EAC83283-1A3F-48D5-AD92-74854021F829}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -159,5 +165,6 @@ Global
 		{780C672B-3519-496B-95EF-40617CC90439} = {CAFE3817-37C1-4B1F-91FC-F1C980D51336}
 		{CAFE3817-37C1-4B1F-91FC-F1C980D51336} = {EE74FC34-9FD7-4885-B66E-B4A169457E6C}
 		{77F816A3-EE0C-4E1E-AB29-B3F625745954} = {CAFE3817-37C1-4B1F-91FC-F1C980D51336}
+		{EAC83283-1A3F-48D5-AD92-74854021F829} = {0FA3345B-C09B-4EA2-9E0A-F67C5508BC7D}
 	EndGlobalSection
 EndGlobal
