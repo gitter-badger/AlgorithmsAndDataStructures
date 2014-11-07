@@ -8,6 +8,7 @@ namespace linkedlist { namespace singly { namespace impl3 {
 template<typename T> class LinkedList
 {
 	public:
+		//================================================================================================================================================================
 		LinkedList()
 		{
 			header = new Node<T>();
@@ -16,6 +17,7 @@ template<typename T> class LinkedList
 			header->next = trail;
 		}
 
+		//================================================================================================================================================================
 		void addFront(const T& element)
 		{
 			Node<T>* newNode = new Node<T>(element);
@@ -24,6 +26,7 @@ template<typename T> class LinkedList
 			header->next  = newNode;
 		}
 
+		//================================================================================================================================================================
 		void addBack(const T& element)
 		{
 			Node<T>* n = header;
@@ -35,6 +38,7 @@ template<typename T> class LinkedList
 			newNode->next = trail;
 		}
 
+		//================================================================================================================================================================
 		void view()
 		{
 			std::cout << "sentinelHead -> ";

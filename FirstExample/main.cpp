@@ -10,7 +10,7 @@
 #include <chrono>
 #include <tuple>
 
-
+//================================================================================================================================================================
 template<typename A>
 void interractiveAlgorithmTest()
 {
@@ -47,6 +47,7 @@ void interractiveAlgorithmTest()
 	while(p != -1 && q != -1);
 }
 
+//================================================================================================================================================================
 template<typename A>
 std::tuple<float, float> analyzePerformance(std::vector<std::pair<int,int>>& testData, int nrNodes)
 {
@@ -68,6 +69,7 @@ std::tuple<float, float> analyzePerformance(std::vector<std::pair<int,int>>& tes
 	return std::make_tuple(duration, averageTreeHeight);
 }
 
+//================================================================================================================================================================
 void performanceAnalyzer()
 {
 	int nrNodes = 100000;
@@ -91,6 +93,7 @@ void performanceAnalyzer()
 	std::cout << std::endl << std::endl;
 }
 
+//================================================================================================================================================================
 int main()
 {
 	interractiveAlgorithmTest<WeightedQuickUnionPathCompression>();

@@ -10,6 +10,7 @@
 #include <string>
 
 
+//================================================================================================================================================================
 std::vector<size_t> generateTestData(size_t size)
 {
 	std::vector<size_t> elements(size);
@@ -22,6 +23,7 @@ std::vector<size_t> generateTestData(size_t size)
 	return elements;
 }
 
+//================================================================================================================================================================
 void testSearchAlgorithm(const std::string& algorithmName,
 					     const std::unique_ptr<basicsearching::ISearch> &searchAlgorithm,
 						 const std::vector<size_t>& elements, size_t key)
@@ -36,6 +38,7 @@ void testSearchAlgorithm(const std::string& algorithmName,
 	std::cout << std::endl << "Duration: " << duration.count() << " ms";
 }
 
+//================================================================================================================================================================
 int main()
 {
 	auto elements = generateTestData(std::pow(10, 4));
