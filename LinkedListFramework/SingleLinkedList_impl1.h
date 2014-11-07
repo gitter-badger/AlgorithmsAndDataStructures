@@ -18,6 +18,30 @@ template<typename T> class LinkedList
 		}
 
 		//================================================================================================================================================================
+		void append(const LinkedList& linkedlist)
+		{
+			Node<T>* n = head;
+			while(n->next != nullptr)
+				n = n->next;
+
+			n->next = linkedlist.head;
+		}
+
+		//================================================================================================================================================================
+		LinkedList(const LinkedList& linkedList)
+		{
+			// avoid self assignment
+			if(this == &linkedList)
+				return;
+
+			if(head)
+				clear();
+
+			for(Node<T>* n = linkedList.head; n != nullptr; n->next)
+				addFront(n->data);
+		}
+
+		//================================================================================================================================================================
 		LinkedList(const std::vector<T>& elements) 
 		{
 			head = nullptr;
