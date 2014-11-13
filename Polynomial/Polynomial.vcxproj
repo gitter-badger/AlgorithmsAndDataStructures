@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E4945524-10B8-465B-ACBA-8C193CE565CD}</ProjectGuid>
+    <ProjectGuid>{B0B7CF98-B3C9-4CFC-9A66-40181F5268B6}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>SkipLists</RootNamespace>
+    <RootNamespace>Polynomial</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -79,10 +79,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SkipList.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SkipList.h" />
+    <ClInclude Include="Poly.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
