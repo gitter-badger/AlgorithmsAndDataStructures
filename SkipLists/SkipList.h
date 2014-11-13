@@ -6,38 +6,42 @@
 
 class SkipList
 {
+	class Node;
+
 	public:
 		SkipList();
 
 		void insert(int element);
 
-		bool find(int element);
+		Node* find(int element);
 		void view();
 
 
 	private:
-		void insert(int element, int listLevel);
-
 		bool flipCoin();
-
 
 		class Node
 		{
-			public:
-				Node(int data = 0) : data(data)
-				{
-					const int maxSize = 13;
+		public:
+			Node(int data = 0) : data(data)
+			{
+				prev = nullptr;
+				down = nullptr;
+				up   = nullptr;
+				down = nullptr;
+			}
 
-					for(int i = 0; i < maxSize; i++)
-						next.push_back(nullptr);
-				}
-
-				std::vector<Node*> next;
-				int data;
+			Node* prev;
+			Node* next;
+			Node* up;
+			Node* down;
+			int data;
 		};
 
 		std::mt19937 engine;
 		std::uniform_int_distribution<int> distribution;
-		Node* head;
-		int maxLevel;
+
+		int height;
+		Node* header;
+		Node* trail;
 };

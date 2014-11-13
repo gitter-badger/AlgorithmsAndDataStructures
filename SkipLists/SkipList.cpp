@@ -1,79 +1,60 @@
 #include "SkipList.h"
+
 #include <random>
 #include <iostream>
+#include <limits>
 
 
 //================================================================================================================================================================================================================================================================
 SkipList::SkipList()
 {
-	head = nullptr;
-	maxLevel = 0;
+	header = new Node(std::numeric_limits<int>::min());	
+	trail  = new Node(std::numeric_limits<int>::max());	
 
-	std::random_device randomDevice;
-	engine.seed(randomDevice());
+	header->next = trail;
+	trail->prev  = header;
+
+	height = 0;
 }
 
 //================================================================================================================================================================================================================================================================
-void SkipList::insert(int element, int listLevel)
-{
-	Node* newNode = new Node(element);
-
-	Node* n = head;
-
-	if(!n)
-		head = newNode;
-	else
-	{
-		// find where to insert
-		Node* prev = n;
-		while(n && n->data < element)
-		{
-			prev = n;
-			n = n->next[listLevel];
-		}
-
-		if(n == head)
-		{
-			head->next[listLevel] = n;
-			n->next[listLevel] = head;
-			head = n;
-		}
-		else
-		{
-			newNode->next[listLevel] = n;
-			prev->next[listLevel] = newNode;
-		}
-
-		
-		// propagate
-		if(flipCoin())
-			insert(element, ++listLevel);
-	}
-}
-
-//================================================================================================================================================================
 void SkipList::insert(int element)
 {
-	insert(element, 0);
+	Node* newNode = new Node(element);
+	Node* p = find(element);
+
+	newNode->next = p->next;
+	newNode->prev = p;
+	p->next->prev = newNode;
+	p->prev = newNode;
+
 }
 
 //================================================================================================================================================================================================================================================================
-bool SkipList::find(int element)
+SkipList::Node* SkipList::find(int element)
 {
-	return false;
+	SkipList::Node* n = header;
+
+	while(true)
+	{
+		while(n->next != trail && n->next->data < element)
+			n = n->next;
+
+		if(n->down)
+			n = n->down;
+		else
+			break;
+	}
+
+	return n;
 }
 
 //================================================================================================================================================================================================================================================================
 void SkipList::view()
 {
-	maxLevel = 10;
-	for(int level = 0; level <= maxLevel; level++)
-	{
-		std::cout << "L" << level << ": head-";
-		for(Node* n = head; n != nullptr; n = n->next[level])
-			std::cout << n->data << "-";
-		std::cout << "NULL" << "\n";
-	}
+	for(Node* n = header; n != nullptr; n = n->next)
+		std::cout << n->data << "-";
+	std::cout << "NULL" << "\n";
 }
 
 //================================================================================================================================================================
