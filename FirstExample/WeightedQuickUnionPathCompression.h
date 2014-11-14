@@ -15,6 +15,9 @@ class WeightedQuickUnionPathCompression : public UnionFindTemplate
 		virtual void Union(int p, int q) override;
 		virtual float getAverageTreeHeight() override;
 
+	protected:
+		int m;
+
 	private:
 		int root(int i);
 

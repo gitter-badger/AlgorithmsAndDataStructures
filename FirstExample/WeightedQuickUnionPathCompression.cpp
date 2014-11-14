@@ -19,6 +19,26 @@ void WeightedQuickUnionPathCompression::Initialize()
 	{
 		id.push_back(i);
 		sz.push_back(1); // each node has a height of 1 initially
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	}
 }
 
