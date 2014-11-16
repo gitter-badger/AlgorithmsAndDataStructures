@@ -6,336 +6,380 @@
 #include <vector>
 
 
-namespace linkedlist { namespace singly { namespace impl1 {
-
-template<typename T> class LinkedList
+namespace linkedlist
 {
-	public:
-		//================================================================================================================================================================
-		LinkedList() : head(nullptr)
-		{
+namespace singly
+{
+namespace impl1
+{
 
-		}
+template<typename T>
+class LinkedList
+{
+    public:
+        //================================================================================================================================================================
+        LinkedList() : head(nullptr)
+        {
 
-		//================================================================================================================================================================
-		void append(const LinkedList& linkedlist)
-		{
-			Node<T>* n = head;
-			while(n->next != nullptr)
-				n = n->next;
+        }
 
-			n->next = linkedlist.head;
-		}
+        //================================================================================================================================================================
+        void append(const LinkedList& linkedlist)
+        {
+            Node<T>* n = head;
+            while(n->next != nullptr && n->next)
+            {
+                n = n->next;
+            }
 
-		//================================================================================================================================================================
-		LinkedList(const LinkedList& linkedList)
-		{
-			// avoid self assignment
-			if(this == &linkedList)
-				return;
+            n->next = linkedlist.head;
+        }
 
-			if(head)
-				clear();
+        //================================================================================================================================================================
+        LinkedList(const LinkedList& linkedList)
+        {
 
-			for(Node<T>* n = linkedList.head; n != nullptr; n->next)
-				addFront(n->data);
-		}
+            // avoid self assignment
+            if(this == &linkedList)
+            {
+                return;
+            }
 
-		//================================================================================================================================================================
-		LinkedList(const std::vector<T>& elements) 
-		{
-			head = nullptr;
-			init(elements);
-		}
+            if(head)
+            {
+                clear();
+            }
 
-		//================================================================================================================================================================
-		LinkedList(Node<T>* head) : head(head) 
-		{
+            for(Node<T>* n = linkedList.head; n != nullptr; n->next)
+            {
+                addFront(n->data);
+            }
+        }
 
-		}
+        //================================================================================================================================================================
+        LinkedList(const std::vector<T>& elements)
+        {
+            head = nullptr;
+            init(elements);
+        }
 
-		//================================================================================================================================================================
-		~LinkedList()
-		{
-		}
+        //================================================================================================================================================================
+        LinkedList(Node<T>* head) : head(head)
+        {
 
-		//================================================================================================================================================================
-		T getPosition(int position)
-		{
-			int index = 0;
-			for(Node<T>* n = head; index < position && n != nullptr; n->next)
-				index++;
+        }
 
-			return n->data;
-		}
+        //================================================================================================================================================================
+        ~LinkedList()
+        {
+        }
 
-		//================================================================================================================================================================
-		void init(const std::vector<T>& elements)
-		{
-			for(auto& e : elements)
-				addBack(e);
-		}
+        //================================================================================================================================================================
+        T getPosition(int position)
+        {
+            int index = 0;
+            for(Node<T>* n = head; index < position && n != nullptr; n->next)
+            {
+                index++;
+            }
 
-		//================================================================================================================================================================
-		std::vector<T> flatten()
-		{
-			std::vector<T> flat;
+            return n->data;
+        }
 
-			for(Node<T>* n = head; n != nullptr; n = n->next)
-				flat.push_back(n->data);
+        //================================================================================================================================================================
+        void init(const std::vector<T>& elements)
+        {
+            for(auto& e : elements)
+            {
+                addBack(e);
+            }
+        }
 
-			return flat;
-		}
+        //================================================================================================================================================================
+        std::vector<T> flatten()
+        {
+            std::vector<T> flat;
 
-		//================================================================================================================================================================
-		int length()
-		{
-			int size = 0;
-			for(Node<T>* n = head; n != nullptr; n = n->next)
-				size++;
+            for(Node<T>* n = head; n != nullptr; n = n->next)
+            {
+                flat.push_back(n->data);
+            }
 
-			return size;
-		}
+            return flat;
+        }
 
-		//================================================================================================================================================================
-		void view()
-		{
-			std::cout << "head -> ";
-			for(Node<T>* n = head; n != nullptr; n = n->next)
-				std::cout << n->data << " -> ";
-			std::cout << "nullptr" << "\n";
-		}
+        //================================================================================================================================================================
+        int length()
+        {
+            int size = 0;
+            for(Node<T>* n = head; n != nullptr; n = n->next)
+            {
+                size++;
+            }
 
-		//================================================================================================================================================================
-		void addFront(const T& element)
-		{
-			Node<T>* newNode = new Node<T>(element, head);
-			head = newNode;
-		}
+            return size;
+        }
 
-		void addBack(const T& element)
-		{
-			Node<T>* n = head;
-			Node<T>* newNode = new Node<T>(element);
+        //================================================================================================================================================================
+        void view()
+        {
+            std::cout << "head -> ";
+            for(Node<T>* n = head; n != nullptr; n = n->next)
+            {
+                std::cout << n->data << " -> ";
+            }
+            std::cout << "nullptr" << "\n";
+        }
 
-			if(!head)
-			{
-				head = newNode;
-			}
-			else
-			{
-				while(n->next)
-					n = n->next;
+        //================================================================================================================================================================
+        void addFront(const T& element)
+        {
+            Node<T>* newNode = new Node<T>(element, head);
+            head = newNode;
+        }
 
-				n->next = newNode;
-			}
-		}
+        void addBack(const T& element)
+        {
+            Node<T>* n = head;
+            Node<T>* newNode = new Node<T>(element);
 
-		//================================================================================================================================================================
-		void clear()
-		{
-			Node<T>* n = head;
+            if(!head)
+            {
+                head = newNode;
+            }
+            else
+            {
+                while(n->next)
+                {
+                    n = n->next;
+                }
 
-			while(n)
-			{
-				Node<T>* toDelete = n;
-				n = n->next;
+                n->next = newNode;
+            }
+        }
 
-				delete toDelete;
-				toDelete = nullptr;
-			}
+        //================================================================================================================================================================
+        void clear()
+        {
+            Node<T>* n = head;
 
-			head = nullptr;
-		}
+            while(n)
+            {
+                Node<T>* toDelete = n;
+                n = n->next;
 
-		//================================================================================================================================================================
-		void remove(const T& element)
-		{
-			Node<T>* currNode = head;
-			Node<T>* prevNode = currNode;
+                delete toDelete;
+                toDelete = nullptr;
+            }
 
-			while(currNode && currNode->data != element)
-			{
-				prevNode = currNode;
-				currNode = currNode->next;
-			}
+            head = nullptr;
+        }
 
-			if(currNode)
-				if(currNode == head)
-					head = currNode->next;
-				else
-					prevNode->next = currNode->next;
-		}
+        //================================================================================================================================================================
+        void remove(const T& element)
+        {
+            Node<T>* currNode = head;
+            Node<T>* prevNode = currNode;
 
-		//================================================================================================================================================================
-		void addSorted(const T& element)
-		{
-			// special case. If the list is empty
-			if(!head)
-			{
-				addFront(element);
-				return;
-			}
+            while(currNode && currNode->data != element)
+            {
+                prevNode = currNode;
+                currNode = currNode->next;
+            }
 
-			// create the new node
-			Node<T>* newNode = new Node<T>(element);
 
-			Node<T>* node = head;
-			Node<T>* prev = node;
-			// search where it has to be introduced
-			while(node != nullptr && newNode->data > node->data)
-			{
-				prev = node;
-				node = node->next;
-			}
+            if(currNode)
+                if(currNode == head)
+                {
+                    head = currNode->next;
+                }
+                else
+                {
+                    prevNode->next = currNode->next;
+                }
+        }
 
-			// special case if it is the first element
-			if(node == head)
-			{
-				newNode->next = head;
-				head = newNode;
-			}
-			// handle the other cases
-			else
-			{
-				newNode->next = prev->next;
-				prev->next = newNode;
-			}
-		}
+        //================================================================================================================================================================
+        void addSorted(const T& element)
+        {
+            // special case. If the list is empty
+            if(!head)
+            {
+                addFront(element);
+                return;
+            }
 
-		//================================================================================================================================================================
-		void removeDuplicates()
-		{
-			Node<T>* node = head;
+            // create the new node
+            Node<T>* newNode = new Node<T>(element);
 
-			while(node->next)
-			{
-				if(node->data == node->next->data)
-				{	
-					Node<T>* toDelete = node->next;
-					node->next = node->next->next;
-					delete toDelete;
-				}
-				else
-					node = node->next;
-			}
-		}
+            Node<T>* node = head;
+            Node<T>* prev = node;
+            // search where it has to be introduced
+            while(node != nullptr && newNode->data > node->data)
+            {
+                prev = node;
+                node = node->next;
+            }
 
-		//================================================================================================================================================================
-		T findMiddle()
-		{
-			Node<T>* slow = head;
-			Node<T>* fast = head;
+            // special case if it is the first element
+            if(node == head)
+            {
+                newNode->next = head;
+                head = newNode;
+            }
+            // handle the other cases
+            else
+            {
+                newNode->next = prev->next;
+                prev->next = newNode;
+            }
+        }
 
-			// order is very important. it is evaluated left -> right
-			while(fast->next && fast->next->next)
-			{
-				slow = slow->next;
-				fast = fast->next->next;
-			}
+        //================================================================================================================================================================
+        void removeDuplicates()
+        {
+            Node<T>* node = head;
 
-			return slow->data;
-		}
+            while(node->next)
+            {
+                if(node->data == node->next->data)
+                {
+                    Node<T>* toDelete = node->next;
+                    node->next = node->next->next;
+                    delete toDelete;
+                }
+                else
+                {
+                    node = node->next;
+                }
+            }
+        }
 
-		//================================================================================================================================================================
-		Node<T>* findLoppNode()
-		{
-			Node<T>* fast = head;
-			Node<T>* slow = head;
+        //================================================================================================================================================================
+        T findMiddle()
+        {
+            Node<T>* slow = head;
+            Node<T>* fast = head;
 
-			do 
-			{
-				if(!fast)
-					return nullptr;
+            // order is very important. it is evaluated left -> right
+            while(fast->next && fast->next->next)
+            {
+                slow = slow->next;
+                fast = fast->next->next;
+            }
 
-				if(!fast->next)
-					return nullptr;
+            return slow->data;
+        }
 
-				fast = fast->next->next;
-				slow = slow->next;
+        //================================================================================================================================================================
+        Node<T>* findLoppNode()
+        {
+            Node<T>* fast = head;
+            Node<T>* slow = head;
 
-			} while ( fast != slow);
+            do
+            {
+                if(!fast)
+                {
+                    return nullptr;
+                }
 
-			slow = head;
+                if(!fast->next)
+                {
+                    return nullptr;
+                }
 
-			do 
-			{
-				slow = slow->next;
-				fast = fast->next;
-			} while (slow != fast);
+                fast = fast->next->next;
+                slow = slow->next;
 
-			return fast;
-		}
+            }
+            while ( fast != slow);
 
-		//================================================================================================================================================================
-		int loop()
-		{
-			Node<T>* slow = head;
-			Node<T>* fast = head;
+            slow = head;
 
-			while(true)
-			{
-				if(!fast)
-					return -1;
+            do
+            {
+                slow = slow->next;
+                fast = fast->next;
+            }
+            while (slow != fast);
 
-				fast = fast->next;
+            return fast;
+        }
 
-				if(!fast)
-					return -1;
+        //================================================================================================================================================================
+        int loop()
+        {
+            Node<T>* slow = head;
+            Node<T>* fast = head;
 
-				fast = fast->next;
-				slow = slow->next;
+            while(true)
+            {
+                if(!fast)
+                {
+                    return -1;
+                }
 
-				if(fast == slow)
-				{
-					int size = 0;
-					do
-					{
-						fast = fast->next->next;
-						slow = slow->next;
-						size++;
-					}
-					while(fast != slow);
-					return size;
-				}
-			}
+                fast = fast->next;
 
-			return -1;
-		}
+                if(!fast)
+                {
+                    return -1;
+                }
 
-		//================================================================================================================================================================
-		void bubbleSort()
-		{
-			for(int i = 0; i < length(); i++)
-			{
-				Node<T>* curr = head;
-				Node<T>* prev = curr;
+                fast = fast->next;
+                slow = slow->next;
 
-				while(curr->next)
-				{
-					if(curr->data > curr->next->data)
-					{
-						if(curr == head)
-						{
-							head->next = curr->next;
-							curr->next = head;
-							head = curr;
-						}
-						else
-						{
-							prev->next = curr->next;
-							curr->next = curr;
-						}
-					}
+                if(fast == slow)
+                {
+                    int size = 0;
+                    do
+                    {
+                        fast = fast->next->next;
+                        slow = slow->next;
+                        size++;
+                    }
+                    while(fast != slow);
+                    return size;
+                }
+            }
 
-					prev = curr;
-					curr = curr->next;
-				}
-			}
-		}	
+            return -1;
+        }
 
-	private:
-		Node<T>* head;			
+        //================================================================================================================================================================
+        void bubbleSort()
+        {
+            for(int i = 0; i < length(); i++)
+            {
+                Node<T>* curr = head;
+                Node<T>* prev = curr;
+
+                while(curr->next)
+                {
+                    if(curr->data > curr->next->data)
+                    {
+                        if(curr == head)
+                        {
+                            head->next = curr->next;
+                            curr->next = head;
+                            head = curr;
+                        }
+                        else
+                        {
+                            prev->next = curr->next;
+                            curr->next = curr;
+                        }
+                    }
+
+                    prev = curr;
+                    curr = curr->next;
+                }
+            }
+        }
+
+    private:
+        Node<T>* head;
 };
 
 } // namespace impl1

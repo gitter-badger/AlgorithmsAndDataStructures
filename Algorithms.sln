@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UninonFind", "FirstExample\FirstExample.vcxproj", "{9ECAF8F1-2E7F-40DE-87C7-258C8D104E8E}"
 EndProject
@@ -87,6 +87,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SkipLists", "SkipLists\Skip
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Polynomial", "Polynomial\Polynomial.vcxproj", "{B0B7CF98-B3C9-4CFC-9A66-40181F5268B6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleRecurisveAlgorithms", "SimpleRecurisveAlgorithms\SimpleRecurisveAlgorithms.vcxproj", "{E74DD6DB-D181-4137-9755-E436F1BBF586}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TowersOfHanoi", "TowersOfHanoi\TowersOfHanoi.vcxproj", "{D547EA82-8F97-4AEA-9B5B-6C1A5B54B729}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -145,6 +149,14 @@ Global
 		{B0B7CF98-B3C9-4CFC-9A66-40181F5268B6}.Debug|Win32.Build.0 = Debug|Win32
 		{B0B7CF98-B3C9-4CFC-9A66-40181F5268B6}.Release|Win32.ActiveCfg = Release|Win32
 		{B0B7CF98-B3C9-4CFC-9A66-40181F5268B6}.Release|Win32.Build.0 = Release|Win32
+		{E74DD6DB-D181-4137-9755-E436F1BBF586}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E74DD6DB-D181-4137-9755-E436F1BBF586}.Debug|Win32.Build.0 = Debug|Win32
+		{E74DD6DB-D181-4137-9755-E436F1BBF586}.Release|Win32.ActiveCfg = Release|Win32
+		{E74DD6DB-D181-4137-9755-E436F1BBF586}.Release|Win32.Build.0 = Release|Win32
+		{D547EA82-8F97-4AEA-9B5B-6C1A5B54B729}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D547EA82-8F97-4AEA-9B5B-6C1A5B54B729}.Debug|Win32.Build.0 = Debug|Win32
+		{D547EA82-8F97-4AEA-9B5B-6C1A5B54B729}.Release|Win32.ActiveCfg = Release|Win32
+		{D547EA82-8F97-4AEA-9B5B-6C1A5B54B729}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -187,5 +199,7 @@ Global
 		{C36B59AC-5674-41A4-AC34-113130D22411} = {0FA3345B-C09B-4EA2-9E0A-F67C5508BC7D}
 		{E4945524-10B8-465B-ACBA-8C193CE565CD} = {7602846C-78FF-40BE-A4A6-6BDB5BC2CCC3}
 		{B0B7CF98-B3C9-4CFC-9A66-40181F5268B6} = {0FA3345B-C09B-4EA2-9E0A-F67C5508BC7D}
+		{E74DD6DB-D181-4137-9755-E436F1BBF586} = {45129E82-A76F-4294-843B-2E8E86C34F8D}
+		{D547EA82-8F97-4AEA-9B5B-6C1A5B54B729} = {45129E82-A76F-4294-843B-2E8E86C34F8D}
 	EndGlobalSection
 EndGlobal

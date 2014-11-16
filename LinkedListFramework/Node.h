@@ -2,34 +2,36 @@
 
 namespace linkedlist
 {
-	namespace singly
-	{
-		template<typename T>
-		class Node
-		{
-			public:
-				inline Node() : next(nullptr) { } 
-				inline Node(T data, Node* next = nullptr) : data(data), next(next) { }
+    namespace singly
+    {
 
-			public:
-				T data;
-				Node* next;
-		};
-	} // namespace singly
+        template<typename T>
+        class Node
+        {
+            public:
+                inline Node() : next(nullptr) { }
+                inline Node(T data, Node* next = nullptr) : data(data), next(next) { }
 
-	namespace doubly
-	{
-		template<typename T>
-		class Node
-		{
-			public:
-				inline Node() : next(nullptr), prev(nullptr) { } 
-				inline Node(T data, Node* next = nullptr, Node* prev = nullptr) : data(data), next(next), prev(prev) { }
+            public:
+                T data;
+                Node* next;
+        };
+    } // namespace singly
 
-			public:
-				T data;
-				Node* next;
-				Node* prev;
-		};
-	} // namespace doubly
+    namespace doubly
+    {
+
+        template<typename T>
+        class Node
+        {
+            public:
+                inline Node() : next(nullptr), prev(nullptr) { }
+                inline Node(T data, Node* next = nullptr, Node* prev = nullptr) : data(data), next(next), prev(prev) { }
+
+            public:
+                T data;
+                Node* next;
+                Node* prev;
+        };
+    } // namespace doubly
 } // namespace single
