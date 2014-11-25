@@ -4,7 +4,7 @@
 #include <map>
 #include <string>
 
-//================================================================================================================================================================================================================================================================
+
 std::vector<std::pair<int, int>> hanoi(int n, int a, int b, int c)
 {
     if(n == 1)
@@ -32,17 +32,21 @@ int main()
     int a = 1;
     int b = 2;
     int c = 3;
-    int n = 3;
+    int n = 5;
+
     std::map<int, std::string> towers;
     towers[a] = "A";
     towers[b] = "B";
     towers[c] = "C";
 
     auto moves = hanoi(n, a, b, c);
-    for(auto m : moves)
-    {
-        std::cout << std::endl << towers[m.first] << " -> " << towers[m.second] << "\n";
-    }
+
+    std::cout << std::endl << "Number of moves: " << moves.size();
+
+    //     for(auto m : moves)
+    //     {
+    //         std::cout << std::endl << towers[m.first] << " -> " << towers[m.second];
+    //     }
 
     return 0;
 }
