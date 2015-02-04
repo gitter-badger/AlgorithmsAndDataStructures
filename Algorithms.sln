@@ -95,6 +95,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BinarySearch", "BinarySearc
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinkedListSmartPointers", "LinkedListSmartPointers\LinkedListSmartPointers.vcxproj", "{C83FD6D7-E465-4D1F-B715-AD554FBEC17C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConvertCircularToPlainList", "ConvertCircularToPlainList\ConvertCircularToPlainList.vcxproj", "{61C590B0-CC0B-4A55-B6FB-68A3DC97B1A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -169,6 +171,10 @@ Global
 		{C83FD6D7-E465-4D1F-B715-AD554FBEC17C}.Debug|Win32.Build.0 = Debug|Win32
 		{C83FD6D7-E465-4D1F-B715-AD554FBEC17C}.Release|Win32.ActiveCfg = Release|Win32
 		{C83FD6D7-E465-4D1F-B715-AD554FBEC17C}.Release|Win32.Build.0 = Release|Win32
+		{61C590B0-CC0B-4A55-B6FB-68A3DC97B1A0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{61C590B0-CC0B-4A55-B6FB-68A3DC97B1A0}.Debug|Win32.Build.0 = Debug|Win32
+		{61C590B0-CC0B-4A55-B6FB-68A3DC97B1A0}.Release|Win32.ActiveCfg = Release|Win32
+		{61C590B0-CC0B-4A55-B6FB-68A3DC97B1A0}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -215,5 +221,6 @@ Global
 		{D547EA82-8F97-4AEA-9B5B-6C1A5B54B729} = {45129E82-A76F-4294-843B-2E8E86C34F8D}
 		{0CF76D7F-F70A-4623-83DA-04F912A73812} = {45129E82-A76F-4294-843B-2E8E86C34F8D}
 		{C83FD6D7-E465-4D1F-B715-AD554FBEC17C} = {CAFE3817-37C1-4B1F-91FC-F1C980D51336}
+		{61C590B0-CC0B-4A55-B6FB-68A3DC97B1A0} = {EE74FC34-9FD7-4885-B66E-B4A169457E6C}
 	EndGlobalSection
 EndGlobal
