@@ -22,8 +22,10 @@ class LinkedList
 
         Node* getHead() const;
         int getLenght() const;
+        int getFront() const;
         int getMiddle() const;
         Node* getNth(int pos) const;
+
 
         bool isCircular() const;
         int getLoopSize() const;

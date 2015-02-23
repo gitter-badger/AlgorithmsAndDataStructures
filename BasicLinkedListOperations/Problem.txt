@@ -15,4 +15,5 @@ Given a single linked list perform the following operations:
 13. Concatenate 2 linked lists
 14. Scramble 2 linked lists
 15. Sort a list
-16. Correctly delete a list
+16. Correctly delete a list [DONE]
+17. Josephus elimination problem [DONE]

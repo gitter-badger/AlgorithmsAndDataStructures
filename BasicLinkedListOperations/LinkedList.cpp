@@ -195,8 +195,6 @@ void LinkedList::removeBack()
 //==============================================================================================================================================================
 void LinkedList::remove(int position)
 {
-    assert(position >= 0 && position <= length);
-
     int index = 0;
     Node* curr = head;
     Node* prev = curr;
@@ -426,4 +424,10 @@ void LinkedList::clearAll()
     {
         removeFront();
     }
+}
+
+//==============================================================================================================================================================
+int LinkedList::getFront() const
+{
+    return head->data;
 }

@@ -17,3 +17,21 @@ LinkedList operations::concatenate(const LinkedList& l1, const LinkedList& l2)
 
     return result;
 }
+
+//==============================================================================================================================================================
+int operations::josephus(int n, int m)
+{
+    LinkedList people;
+    for(int i = 0 ; i < n; i++)
+    {
+        people.addFront(i);
+    }
+    people.makeCircular();
+
+    while(people.getLenght() != 1)
+    {
+        people.remove(m);
+    }
+
+    return people.getFront();
+}
