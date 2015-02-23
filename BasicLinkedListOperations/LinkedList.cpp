@@ -441,6 +441,12 @@ int LinkedList::getFront() const
 //==============================================================================================================================================================
 void LinkedList::swap(int pos1, int pos2)
 {
+    int distance = std::abs(pos2 - pos1);
+    if(distance == 0) // no need to swap same node
+    {
+        return;
+    }
+
     if(pos2 < pos1) // be consistent. Order does not matter
     {
         swap(pos1, pos2);
@@ -448,12 +454,6 @@ void LinkedList::swap(int pos1, int pos2)
 
     Node* n1     = getNth(pos1 - 1); // must always get the previous
     Node* n2     = getNth(pos2 - 1); // must always get the previous
-    int distance = std::abs(pos2 - pos1);
-
-    if(distance == 0) // no need to swap same node
-    {
-        return;
-    }
 
     if(!n1) // we have to swap head
     {
@@ -566,11 +566,11 @@ int LinkedList::getNthToLast(int n)
 }
 
 //==============================================================================================================================================================
-void LinkedList::getNthToLastRecursive(Node* node, int n, int& result)
+void LinkedList::getNthToLastRecursive(Node* node, int n, int& outResult)
 {
     if(node)
     {
-        recursive getNthToLastRecursive(node->next, n, result);
+        recursive getNthToLastRecursive(node->next, n, outResult);
     }
 
     static int i = 0;
@@ -578,6 +578,25 @@ void LinkedList::getNthToLastRecursive(Node* node, int n, int& result)
 
     if(i == n)
     {
-        result = node->data;
+        outResult = node->data;
     }
+}
+
+//==============================================================================================================================================================
+void LinkedList::swapData(int pos1, int pos2)
+{
+    int distance = std::abs(pos2 - pos1);
+    if(distance == 0) // no need to swap same node
+    {
+        return;
+    }
+
+    if(pos2 < pos1) // be consistent. Order does not matter
+    {
+        swap(pos1, pos2);
+    }
+
+    Node* n1 = getNth(pos1); // must always get the previous
+    Node* n2 = getNth(pos2); // must always get the previous
+    std::swap(n1->data, n2->data);
 }

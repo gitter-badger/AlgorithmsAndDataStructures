@@ -14,10 +14,9 @@ int main()
         l.insert(i);
     }
 
+    l.swapData(0, 2);
     l.view();
-    int result;
-    l.getNthToLastRecursive(l.getHead(), 3, result);
-    std::cout << std::endl << result;
+
 
     std::cout << std::endl << "\n\n";
     return 0;
