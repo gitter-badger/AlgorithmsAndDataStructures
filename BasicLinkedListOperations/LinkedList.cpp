@@ -522,6 +522,7 @@ void LinkedList::reverseInPlace()
 
     second->next = head;  // do the actual swap. Now 2nd points to head
     head->next   = nullptr;
+    head         = second;
 
     if(!third) // we are done and list it too small
     {
