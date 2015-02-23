@@ -17,7 +17,7 @@ int main()
     std::cout << std::endl << std::setw(15) << std::setfill('-') << "\n";
     l.view();
 
-    l.reverse();
+    l.reverseInPlace();
     std::cout << std::endl << std::setw(15) << std::setfill('-') << "\n";
     l.view();
 

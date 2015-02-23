@@ -27,7 +27,8 @@ class LinkedList
         int getMiddle() const;
         Node* getNth(int pos) const;
 
-        void reverse();
+        void reverseWithSwap();
+        void reverseInPlace();
 
         bool isCircular() const;
         int getLoopSize() const;

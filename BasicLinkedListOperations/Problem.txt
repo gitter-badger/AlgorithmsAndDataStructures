@@ -4,7 +4,7 @@ Given a single linked list perform the following operations:
 2. Remove from front/back/middle [DONE]
 3. View normal, view reverse(use 2 methods) [DONE]
 4. Remove duplicates from sorted list [DONE]
-5. Reverse list in place
+5. Reverse list in place [DONE]
 6. Detect if circular [DONE]
 7. Detect loop size [DONE]
 8. Convert circular -> flat list [DONE]
@@ -17,3 +17,4 @@ Given a single linked list perform the following operations:
 15. Sort a list
 16. Correctly delete a list [DONE]
 17. Josephus elimination problem [DONE]
+18. Swap 2 nodes [DONE]

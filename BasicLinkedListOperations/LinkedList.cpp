@@ -505,11 +505,40 @@ void LinkedList::swap(int pos1, int pos2)
 }
 
 //==============================================================================================================================================================
-void LinkedList::reverse()
+void LinkedList::reverseWithSwap()
 {
     for(int i = 0; i < length / 2; i++)
     {
         swap(i, length - i - 1);
     }
 
+}
+
+//==============================================================================================================================================================
+void LinkedList::reverseInPlace()
+{
+    Node* second = head->next;
+    Node* third  = second->next;
+
+    second->next = head;
+    head->next = nullptr;
+
+    if(!third)
+    {
+        return;
+    }
+
+    Node* curr = third;
+    Node* prev = second;
+
+    while(curr)
+    {
+        Node* next = curr->next;
+        curr->next = prev;
+
+        prev = curr;
+        curr = next;
+    }
+
+    head = prev;
 }
