@@ -440,6 +440,11 @@ int LinkedList::getFront() const
 //==============================================================================================================================================================
 void LinkedList::swap(int pos1, int pos2)
 {
+    if(pos2 < pos1) // be consistent. Order does not matter
+    {
+        swap(pos1, pos2);
+    }
+
     Node* n1     = getNth(pos1 - 1); // must always get the previous
     Node* n2     = getNth(pos2 - 1); // must always get the previous
     int distance = std::abs(pos2 - pos1);
@@ -451,9 +456,13 @@ void LinkedList::swap(int pos1, int pos2)
 
     if(!n1) // we have to swap head
     {
-        if(distance == 1)
+        if(distance == 1) // special case
         {
-            return;
+            Node* tmp      = n2->next;
+            Node* saveN2   = n2->next->next;
+            n2->next->next = head;
+            head->next     = saveN2;
+            head           = tmp;
         }
         else
         {

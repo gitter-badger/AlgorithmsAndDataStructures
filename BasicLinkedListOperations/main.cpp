@@ -19,7 +19,7 @@ int main()
     l.insert(7);
     l.insert(8);
 
-    l.swap(0, 3);
+    l.swap(0, 1);
 
     std::cout << std::endl << std::setw(15) << std::setfill('-') << "\n";
     l.view();
