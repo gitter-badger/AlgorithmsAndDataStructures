@@ -101,6 +101,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interview Questions", "Inte
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BasicLinkedListOperations", "BasicLinkedListOperations\BasicLinkedListOperations.vcxproj", "{B6F14CB8-CCF6-4FD7-BE17-75050F90228C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FlattenLinkedList", "FlattenLinkedList\FlattenLinkedList.vcxproj", "{68E314E1-7E92-4EAA-B2AA-26D411E886B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -183,6 +185,10 @@ Global
 		{B6F14CB8-CCF6-4FD7-BE17-75050F90228C}.Debug|Win32.Build.0 = Debug|Win32
 		{B6F14CB8-CCF6-4FD7-BE17-75050F90228C}.Release|Win32.ActiveCfg = Release|Win32
 		{B6F14CB8-CCF6-4FD7-BE17-75050F90228C}.Release|Win32.Build.0 = Release|Win32
+		{68E314E1-7E92-4EAA-B2AA-26D411E886B0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{68E314E1-7E92-4EAA-B2AA-26D411E886B0}.Debug|Win32.Build.0 = Debug|Win32
+		{68E314E1-7E92-4EAA-B2AA-26D411E886B0}.Release|Win32.ActiveCfg = Release|Win32
+		{68E314E1-7E92-4EAA-B2AA-26D411E886B0}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -231,5 +237,6 @@ Global
 		{C83FD6D7-E465-4D1F-B715-AD554FBEC17C} = {CAFE3817-37C1-4B1F-91FC-F1C980D51336}
 		{61C590B0-CC0B-4A55-B6FB-68A3DC97B1A0} = {EE74FC34-9FD7-4885-B66E-B4A169457E6C}
 		{B6F14CB8-CCF6-4FD7-BE17-75050F90228C} = {36E612CC-F820-47E2-A5F8-FA31AAE679FA}
+		{68E314E1-7E92-4EAA-B2AA-26D411E886B0} = {36E612CC-F820-47E2-A5F8-FA31AAE679FA}
 	EndGlobalSection
 EndGlobal
