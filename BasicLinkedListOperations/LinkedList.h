@@ -27,6 +27,7 @@ class LinkedList
         int getMiddle() const;
         Node* getNth(int pos) const;
         int getNthToLast(int n);
+        void getNthToLastRecursive(Node* node, int n, int& result);
 
         void reverseWithSwap();
         void reverseInPlace();

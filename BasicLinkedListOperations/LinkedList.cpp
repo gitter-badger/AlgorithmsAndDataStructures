@@ -4,6 +4,7 @@
 #include <stack>
 #include <assert.h>
 
+#define recursive
 
 //==============================================================================================================================================================
 LinkedList::LinkedList(Node* head) : head(head)
@@ -562,4 +563,21 @@ int LinkedList::getNthToLast(int n)
     }
 
     return n2->data;
+}
+
+//==============================================================================================================================================================
+void LinkedList::getNthToLastRecursive(Node* node, int n, int& result)
+{
+    if(node)
+    {
+        recursive getNthToLastRecursive(node->next, n, result);
+    }
+
+    static int i = 0;
+    i++;
+
+    if(i == n)
+    {
+        result = node->data;
+    }
 }
