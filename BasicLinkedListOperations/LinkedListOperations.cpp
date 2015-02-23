@@ -106,6 +106,28 @@ LinkedList linkedlist::sum(const LinkedList& l1, const LinkedList& l2)
         stack2.pop();
     }
 
+    while(!stack1.empty())
+    {
+        int a      = stack1.top();
+        int sum    = a + carry;
+        int result = sum % 10;
+        carry      = (sum > 9 ? 1 : 0);
+
+        l3.addFront(result);
+        stack1.pop();
+    }
+
+    while(!stack2.empty())
+    {
+        int b = stack2.top();
+        int sum = b + carry;
+        int result = sum % 10;
+        carry = (sum > 9 ? 1 : 0);
+
+        l3.addFront(result);
+        stack2.pop();
+    }
+
     if(carry)
     {
         l3.addFront(carry);
