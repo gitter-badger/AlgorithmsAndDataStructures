@@ -518,12 +518,12 @@ void LinkedList::reverseWithSwap()
 void LinkedList::reverseInPlace()
 {
     Node* second = head->next;
-    Node* third  = second->next;
+    Node* third  = second->next; // because we swap and we do not want to loose information
 
-    second->next = head;
-    head->next = nullptr;
+    second->next = head;  // do the actual swap. Now 2nd points to head
+    head->next   = nullptr;
 
-    if(!third)
+    if(!third) // we are done and list it too small
     {
         return;
     }
@@ -534,11 +534,11 @@ void LinkedList::reverseInPlace()
     while(curr)
     {
         Node* next = curr->next;
-        curr->next = prev;
+        curr->next = prev; // link backwards
 
         prev = curr;
         curr = next;
     }
 
-    head = prev;
+    head = prev; // will be the last one
 }
