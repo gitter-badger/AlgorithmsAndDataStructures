@@ -542,3 +542,23 @@ void LinkedList::reverseInPlace()
 
     head = prev; // will be the last one
 }
+
+//==============================================================================================================================================================
+int LinkedList::getNthToLast(int n)
+{
+    Node* n1 = head;
+    Node* n2 = head;
+
+    for(int i = 0; i < n; i++)
+    {
+        n1 = n1->next;
+    }
+
+    while(n1)
+    {
+        n1 = n1->next;
+        n2 = n2->next;
+    }
+
+    return n2->data;
+}
