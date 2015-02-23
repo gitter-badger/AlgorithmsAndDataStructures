@@ -137,7 +137,7 @@ void LinkedList::insert(int data)
         Node* n = head;
         int pos = 0;
 
-        while(n && data < n->data)
+        while(n && data > n->data)
         {
             n = n->next;
             pos++;
@@ -363,9 +363,14 @@ int LinkedList::getLoopSize() const
 //==============================================================================================================================================================
 LinkedList::Node* LinkedList::getNth(int pos) const
 {
-    int index = 0;
+    int index  = 0;
     Node* curr = head;
     Node* prev = curr;
+
+    if(pos == -1)
+    {
+        return nullptr;
+    }
 
     while(index < pos)
     {
@@ -374,7 +379,7 @@ LinkedList::Node* LinkedList::getNth(int pos) const
         index++;
     }
 
-    if(curr == head)
+    if(curr == head || index == 0)
     {
         return head;
     }
@@ -430,4 +435,62 @@ void LinkedList::clearAll()
 int LinkedList::getFront() const
 {
     return head->data;
+}
+
+//==============================================================================================================================================================
+void LinkedList::swap(int pos1, int pos2)
+{
+    Node* n1     = getNth(pos1 - 1); // must always get the previous
+    Node* n2     = getNth(pos2 - 1); // must always get the previous
+    int distance = std::abs(pos2 - pos1);
+
+    if(distance == 0) // no need to swap same node
+    {
+        return;
+    }
+
+    if(!n1) // we have to swap head
+    {
+        if(distance == 1)
+        {
+            return;
+        }
+        else
+        {
+            Node* saveN2   = n2->next->next;
+            Node* saveHead = head->next;
+            Node* tmp      = head;
+
+            head->next     = n2->next;
+            head           = n2->next;
+
+            n2->next->next = saveHead;
+            n2->next       = tmp;
+            tmp->next      = saveN2;
+        }
+    }
+    else
+    {
+        if(distance == 1) // special case of distance 1
+        {
+            Node* sanveN2  = n2->next->next;
+
+            n1->next       = n2->next;
+            n2->next->next = n2;
+            n2->next       = sanveN2;
+        }
+        else
+        {
+            Node* saveN1   = n1->next->next;
+            Node* saveN2   = n2->next->next;
+
+            Node* tmp      = n1->next;
+            n1->next       = n2->next;
+
+            n2->next->next = saveN1;
+            n2->next       = tmp;
+            tmp->next      = saveN2;
+        }
+    }
+
 }

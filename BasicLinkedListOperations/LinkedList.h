@@ -19,6 +19,7 @@ class LinkedList
         ~LinkedList();
 
         void clearAll();
+        void swap(int pos1, int pos2);
 
         Node* getHead() const;
         int getLenght() const;
