@@ -4,12 +4,17 @@
 #include <stack>
 #include <assert.h>
 
-#define recursive
 
 //==============================================================================================================================================================
 LinkedList::LinkedList(Node* head) : head(head)
 {
+}
 
+//=============================================================================
+LinkedList::LinkedList()
+{
+	head = nullptr;
+	length = 0;
 }
 
 //==============================================================================================================================================================
@@ -27,33 +32,6 @@ void LinkedList::view()  const
         std::cout << n->data;
         n = n->next;
     }
-}
-
-//==============================================================================================================================================================
-void LinkedList::viewReverse1() const
-{
-    std::stack<int> stack;
-    for(Node* n = head; n != nullptr; n = n->next)
-    {
-        stack.push(n->data);
-    }
-
-    while(!stack.empty())
-    {
-        std::cout << " " << stack.top();
-        stack.pop();
-    }
-}
-
-//==============================================================================================================================================================
-void LinkedList::viewReverse2(Node* n) const
-{
-    if(n->next)
-    {
-        viewReverse2(n->next);
-    }
-
-    std::cout << " " << n->data;
 }
 
 //==============================================================================================================================================================
@@ -291,77 +269,6 @@ int LinkedList::getMiddle() const
 }
 
 //==============================================================================================================================================================
-bool LinkedList::isCircular() const
-{
-    bool circular = false;
-
-    Node* fast = head;
-    Node* slow = head;
-
-    while(fast && !circular)
-    {
-        if(!fast)
-        {
-            break;
-        }
-        fast = fast->next;
-
-        if(!fast)
-        {
-            break;
-        }
-        fast = fast->next;
-
-        slow = slow->next;
-
-        if(fast == slow)
-        {
-            circular = true;
-        }
-    }
-
-    return circular;
-}
-
-//==============================================================================================================================================================
-int LinkedList::getLoopSize() const
-{
-    int loop = 0;
-
-    if(!isCircular())
-    {
-        loop = -1;
-    }
-    else
-    {
-        Node* slow = head;
-        Node* fast = head;
-
-        bool finished = false;
-        while(!finished)
-        {
-            fast = fast->next->next;
-            slow = slow->next;
-
-            if(fast == slow)
-            {
-                do
-                {
-                    fast = fast->next->next;
-                    slow = slow->next;
-                    loop++;
-                }
-                while(fast != slow);
-
-                finished = true;
-            }
-        }
-    }
-
-    return loop;
-}
-
-//==============================================================================================================================================================
 LinkedList::Node* LinkedList::getNth(int pos) const
 {
     int index  = 0;
@@ -391,40 +298,12 @@ LinkedList::Node* LinkedList::getNth(int pos) const
 }
 
 //==============================================================================================================================================================
-void LinkedList::makeFlat()
-{
-    if(isCircular())
-    {
-        int loopSize = getLoopSize();
-        Node* ahead  = getNth(loopSize);
-        Node* curr   = head;
-        Node* prev   = head;
-
-        while(curr != ahead)
-        {
-            curr  = curr->next;
-            prev  = ahead;
-            ahead = ahead->next;
-        }
-
-        prev->next = nullptr;
-    }
-}
-
-//==============================================================================================================================================================
-void LinkedList::makeCircular()
-{
-    Node* tail = getNth(length - 1);
-    tail->next = head;
-}
-
-//==============================================================================================================================================================
 void LinkedList::clearAll()
 {
-    if(isCircular())
-    {
-        makeFlat();
-    }
+//     if(isCircular())
+//     {
+//         makeFlat();
+//     }
 
     while(head)
     {
@@ -439,150 +318,6 @@ int LinkedList::getFront() const
 }
 
 //==============================================================================================================================================================
-void LinkedList::swap(int pos1, int pos2)
-{
-    int distance = std::abs(pos2 - pos1);
-    if(distance == 0) // no need to swap same node
-    {
-        return;
-    }
-
-    if(pos2 < pos1) // be consistent. Order does not matter
-    {
-        swap(pos1, pos2);
-    }
-
-    Node* n1     = getNth(pos1 - 1); // must always get the previous
-    Node* n2     = getNth(pos2 - 1); // must always get the previous
-
-    if(!n1) // we have to swap head
-    {
-        if(distance == 1) // special case
-        {
-            Node* tmp      = n2->next;
-            Node* saveN2   = n2->next->next;
-            n2->next->next = head;
-            head->next     = saveN2;
-            head           = tmp;
-        }
-        else
-        {
-            Node* saveN2   = n2->next->next;
-            Node* saveHead = head->next;
-            Node* tmp      = head;
-
-            head->next     = n2->next;
-            head           = n2->next;
-
-            n2->next->next = saveHead;
-            n2->next       = tmp;
-            tmp->next      = saveN2;
-        }
-    }
-    else
-    {
-        if(distance == 1) // special case of distance 1
-        {
-            Node* sanveN2  = n2->next->next;
-
-            n1->next       = n2->next;
-            n2->next->next = n2;
-            n2->next       = sanveN2;
-        }
-        else
-        {
-            Node* saveN1   = n1->next->next;
-            Node* saveN2   = n2->next->next;
-
-            Node* tmp      = n1->next;
-            n1->next       = n2->next;
-
-            n2->next->next = saveN1;
-            n2->next       = tmp;
-            tmp->next      = saveN2;
-        }
-    }
-
-}
-
-//==============================================================================================================================================================
-void LinkedList::reverseWithSwap()
-{
-    for(int i = 0; i < length / 2; i++)
-    {
-        swap(i, length - i - 1);
-    }
-
-}
-
-//==============================================================================================================================================================
-void LinkedList::reverseInPlace()
-{
-    Node* second = head->next;
-    Node* third  = second->next; // because we swap and we do not want to loose information
-
-    second->next = head;  // do the actual swap. Now 2nd points to head
-    head->next   = nullptr;
-    head         = second;
-
-    if(!third) // we are done and list it too small
-    {
-        return;
-    }
-
-    Node* curr = third;
-    Node* prev = second;
-
-    while(curr)
-    {
-        Node* next = curr->next;
-        curr->next = prev; // link backwards
-
-        prev = curr;
-        curr = next;
-    }
-
-    head = prev; // will be the last one
-}
-
-//==============================================================================================================================================================
-int LinkedList::getNthToLast(int n)
-{
-    Node* n1 = head;
-    Node* n2 = head;
-
-    for(int i = 0; i < n; i++)
-    {
-        n1 = n1->next;
-    }
-
-    while(n1)
-    {
-        n1 = n1->next;
-        n2 = n2->next;
-    }
-
-    return n2->data;
-}
-
-//==============================================================================================================================================================
-void LinkedList::getNthToLastRecursive(Node* node, int n, int& outResult)
-{
-    if(node)
-    {
-        recursive getNthToLastRecursive(node->next, n, outResult);
-    }
-
-    static int i = 0;
-    i++;
-
-    if(i == n)
-    {
-        outResult = node->data;
-    }
-}
-
-//==============================================================================================================================================================
 void LinkedList::swapData(int pos1, int pos2)
 {
     int distance = std::abs(pos2 - pos1);
@@ -593,10 +328,32 @@ void LinkedList::swapData(int pos1, int pos2)
 
     if(pos2 < pos1) // be consistent. Order does not matter
     {
-        swap(pos1, pos2);
+        std::swap(pos1, pos2);
     }
 
     Node* n1 = getNth(pos1); // must always get the previous
     Node* n2 = getNth(pos2); // must always get the previous
     std::swap(n1->data, n2->data);
+}
+
+//=============================================================================
+int LinkedList::getPosition(Node* n)
+{
+	Node* tmp = head;
+	int position = 0;
+
+	while(tmp && tmp != n)
+	{
+		position++;
+		tmp = tmp->next;
+	}
+
+	if(!tmp)
+	{
+		return -1;
+	}
+	else
+	{
+		return position;
+	}
 }

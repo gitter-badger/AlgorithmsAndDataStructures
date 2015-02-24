@@ -6,20 +6,22 @@ class LinkedList
         class Node
         {
             public:
-                Node(int data) : data(data) {}
+                Node(int data) : data(data) 
+				{
+					next = nullptr;
+				}
 
             public:
-                Node* next = nullptr;
+                Node* next;
                 int data;
         };
 
     public:
         LinkedList(Node* head);
-        LinkedList() = default;
+        LinkedList();
         ~LinkedList();
 
         void clearAll();
-        void swap(int pos1, int pos2);
         void swapData(int pos1, int pos2);
 
         Node* getHead() const;
@@ -27,20 +29,9 @@ class LinkedList
         int getFront() const;
         int getMiddle() const;
         Node* getNth(int pos) const;
-        int getNthToLast(int n);
-        void getNthToLastRecursive(Node* node, int n, int& result);
-
-        void reverseWithSwap();
-        void reverseInPlace();
-
-        bool isCircular() const;
-        int getLoopSize() const;
-        void makeFlat();
-        void makeCircular();
+		int getPosition(Node* n);
 
         void view() const;
-        void viewReverse1() const;
-        void viewReverse2(Node* n) const;
 
         void addFront(int data);
         void addBack(int data);
@@ -53,6 +44,6 @@ class LinkedList
         void removeDuplicates();
 
     private:
-        Node* head = nullptr;
-        int length = 0;
+        Node* head;
+        int length;
 };
