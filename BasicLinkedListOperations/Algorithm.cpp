@@ -467,5 +467,78 @@ void remove(LinkedList& linkedlist, int startPosition, int removeCount)
 	}
 }
 
+//=============================================================================
+LinkedList Union(const LinkedList& l1, const LinkedList& l2)
+{
+	LinkedList result;
+
+	LinkedList::Node* n1 = l1.getHead();
+	while(n1)
+	{
+		if(!result.find(n1->data))
+		{
+			result.addBack(n1->data);
+		}
+		n1 = n1->next;
+	}
+
+	LinkedList::Node* n2 = l2.getHead();
+	while(n2)
+	{
+		if(!result.find(n2->data))
+		{
+			result.addBack(n2->data);
+		}
+		n2 = n2->next;
+	}
+
+	return result;
+}
+
+//=============================================================================
+LinkedList Difference(const LinkedList& l1, const LinkedList& l2)
+{
+	LinkedList result;
+
+	LinkedList::Node* n1 = l1.getHead();
+	while(n1)
+	{
+		if(!l2.find(n1->data) && !result.find(n1->data))
+		{
+			result.addBack(n1->data);
+		}
+		n1 = n1->next;
+	}
+	
+	return result;
+}
+
+//=============================================================================
+LinkedList Intersection(const LinkedList& l1, const LinkedList& l2)
+{
+	LinkedList result;
+
+	LinkedList::Node* n1 = l1.getHead();
+	while(n1)
+	{
+		if(l2.find(n1->data) && !result.find(n1->data))
+		{
+			result.addBack(n1->data);
+		}
+		n1 = n1->next;
+	}
+
+	LinkedList::Node* n2 = l2.getHead();
+	while(n2)
+	{
+		if(l1.find(n2->data) && !result.find(n2->data))
+		{
+			result.addBack(n2->data);
+		}
+		n2 = n2->next;
+	}
+	return result;
+}
+
 } // namespace algorithm
 

@@ -38,9 +38,42 @@ void testDelete()
 }
 
 //==============================================================================================================================================================
+void testSetOperation()
+{
+	LinkedList l1;
+	l1.addBack(1);
+	l1.addBack(2);
+	l1.addBack(3);
+
+	LinkedList l2;
+	l2.addBack(0);
+	l2.addBack(1);
+	l2.addBack(2);
+	l2.addBack(4);
+
+	std::cout << "List1 = ";
+	l1.view();
+
+	std::cout << "\nList2 = ";
+	l2.view();
+
+	auto result1 = algorithm::Union(l1, l2);
+	std::cout << "\nUnion = ";
+	result1.view();
+
+	auto result2 = algorithm::Intersection(l1, l2);
+	std::cout << "\nIntersection = ";
+	result2.view();
+
+	auto result3 = algorithm::Difference(l1, l2);
+	std::cout << "\nDifference = ";
+	result3.view();
+}
+
+//==============================================================================================================================================================
 int main()
 {
-   testDelete();
+	testSetOperation();
 
     std::cout << std::endl << "\n\n";
     return 0;

@@ -357,3 +357,22 @@ int LinkedList::getPosition(Node* n)
 		return position;
 	}
 }
+
+//=============================================================================
+bool LinkedList::find(int data) const
+{
+	Node* n = head;
+	bool found = false;
+
+	while(n && !found)
+	{
+		if(n->data == data)
+		{
+			found = true;
+		}
+
+		n = n->next;
+	}
+
+	return found;
+}

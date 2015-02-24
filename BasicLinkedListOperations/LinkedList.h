@@ -30,6 +30,7 @@ class LinkedList
         int getMiddle() const;
         Node* getNth(int pos) const;
 		int getPosition(Node* n);
+		bool find(int data) const;
 
         void view() const;
 
