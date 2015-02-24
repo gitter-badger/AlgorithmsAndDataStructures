@@ -5,7 +5,7 @@
 
 
 //=============================================================================
-void algorithm::flatten(Node* head)
+void algorithm::flattenSorted(Node* head)
 {
 	Node* n = head;
 	while(n)
@@ -44,5 +44,29 @@ void algorithm::view(Node* head)
 	{
 		std::cout << " " << n->data;
 		n = n->next;
+	}
+}
+
+//=============================================================================
+void algorithm::flatten(Node* head)
+{
+	Node* n = head;
+
+	while(n)
+	{
+		Node* next  = n->next;
+		Node* d     = n->down;
+		Node* prevD = d;
+
+		while(d)
+		{
+			n->next = d;
+			n = d;
+			prevD = d;
+			d = d->down;
+		}
+
+		prevD->next = next;
+		n = next;
 	}
 }
