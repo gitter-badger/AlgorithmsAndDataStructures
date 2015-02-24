@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <stack>
+#include <assert.h>
 
 #define recursive
 
@@ -253,7 +254,7 @@ void reverseWithSwap(LinkedList& linkedList)
 	int length = linkedList.getLenght();
 	for(int i = 0; i < length / 2; i++)
 	{
-		linkedList.swap(i, length - i - 1);
+		swapData(linkedList, i, length - i - 1);
 	}
 
 }
@@ -431,4 +432,40 @@ void swapData(LinkedList& linkedList, LinkedList::Node* n1, LinkedList::Node* n2
 	std::swap(n1->data, n2->data);
 }
 
+//=============================================================================
+void swapData(LinkedList& linkedList, int pos1, int pos2)
+{
+	swapLinks(linkedList, linkedList.getNth(pos1), linkedList.getNth(pos2));
+}
+
+//=============================================================================
+void remove(LinkedList& linkedlist, int startPosition, int removeCount)
+{
+	assert(startPosition >= 0 && startPosition < linkedlist.getLenght());
+	assert(removeCount >=0 && removeCount < linkedlist.getLenght() - startPosition);
+
+	LinkedList::Node* head = linkedlist.getHead();
+
+	LinkedList::Node* curr = head;
+	LinkedList::Node* prev = curr;
+	int pos = 0;
+	while(pos < startPosition)
+	{
+		pos++;
+		prev = curr;
+		curr = curr->next;
+	}
+
+	int removeIndex = 0;
+	while(removeIndex < removeCount)
+	{
+		LinkedList::Node* toRemove = prev->next;
+		prev->next = prev->next->next;
+
+		delete toRemove;
+		removeIndex++;
+	}
+}
+
 } // namespace algorithm
+

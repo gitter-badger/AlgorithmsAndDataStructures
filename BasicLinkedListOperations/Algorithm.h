@@ -21,9 +21,13 @@ namespace algorithm
 	void viewReverseStack(LinkedList& linkedList);
 	void viewReverseRecursive(LinkedList::Node* n);
 
+	// removal
+	void remove(LinkedList& linkedlist, int startPosition, int removeCount);
+
 	// swapping
 	void swapLinks(LinkedList& linkedList, LinkedList::Node* n1, LinkedList::Node* n2);
 	void swapData(LinkedList& linkedList, LinkedList::Node* n1, LinkedList::Node* n2);
+	void swapData(LinkedList& linkedList, int pos1, int pos2);
 
 	// multiple list operations
 	LinkedList concatenate(const LinkedList& l1, const LinkedList& l2);

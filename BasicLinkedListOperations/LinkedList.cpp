@@ -29,7 +29,7 @@ void LinkedList::view()  const
     Node* n = head;
     while(n)
     {
-        std::cout << n->data;
+        std::cout << " " << n->data;
         n = n->next;
     }
 }

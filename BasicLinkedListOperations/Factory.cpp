@@ -31,4 +31,17 @@ LinkedList createFromVector(const std::vector<int>& elements)
 	return result;
 }
 
+//=============================================================================
+LinkedList createFromIncreasingN(int n)
+{
+	LinkedList result;
+
+	for(int i = 0; i < n; i++)
+	{
+		result.addBack(i);
+	}
+
+	return result;
+}
+
 } // namespace factory
