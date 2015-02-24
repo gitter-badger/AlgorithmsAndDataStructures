@@ -540,5 +540,30 @@ LinkedList Intersection(const LinkedList& l1, const LinkedList& l2)
 	return result;
 }
 
+//=============================================================================
+void seggregateEvenOdds(LinkedList& linkedList)
+{
+	LinkedList::Node* head = linkedList.getHead();
+	LinkedList::Node* n    = head;
+	LinkedList::Node* even = n;
+	LinkedList::Node* odd  = n;
+
+	while(n)
+	{
+		bool isEven = (n->data % 2 == 0 ? true : false);
+
+		if(isEven)
+		{
+
+		}
+		else
+		{
+
+		}
+
+		n = n->next;
+	}
+}
+
 } // namespace algorithm
 

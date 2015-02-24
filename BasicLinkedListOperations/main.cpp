@@ -71,9 +71,19 @@ void testSetOperation()
 }
 
 //==============================================================================================================================================================
+void testSeggregate()
+{
+	auto list = factory::createFromIncreasingN(10);
+	algorithm::seggregateEvenOdds(list);
+}
+
+//==============================================================================================================================================================
 int main()
 {
-	testSetOperation();
+	//testSum();
+	//testDelete();
+	//testSetOperation();
+	testSeggregate();
 
     std::cout << std::endl << "\n\n";
     return 0;

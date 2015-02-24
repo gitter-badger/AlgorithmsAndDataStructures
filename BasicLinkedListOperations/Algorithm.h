@@ -41,4 +41,5 @@ namespace algorithm
 
 	// other
 	int josephus(int n, int m);
+	void seggregateEvenOdds(LinkedList& linkedList);
 }
