@@ -19,13 +19,13 @@ Node* factory::createRandPrevList()
 	n6->next = n7;
 	n7->next = nullptr;
 
-	n7->prev = n1;
-	n1->prev = n2;
-	n2->prev = n3;
+	n1->prev = n7;
+	n7->prev = n2;
+	n2->prev = n6;
+	n6->prev = n3;
 	n3->prev = n5;
 	n5->prev = n4;
-	n4->prev = n6;
-	n6->prev = nullptr;
+	n4->prev = nullptr;
 
 	Node* head = n1;
 	return head;

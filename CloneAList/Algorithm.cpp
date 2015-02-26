@@ -17,7 +17,7 @@ void algorithm::ViewPrev(Node* head)
 
 	while(n)
 	{
-		std::cout << n->data << " <- ";
+		std::cout << n->data << " ";
 		n = n->prev;
 	}
 }
@@ -29,7 +29,7 @@ void algorithm::ViewNext(Node* head)
 
 	while(n)
 	{
-		std::cout << n->data << " -> ";
+		std::cout << n->data << " ";
 		n = n->next;
 	}
 }
