@@ -8,9 +8,9 @@ int main()
 {
 	Node* list = factory::createRandPrevList();
 
-	algorithm::ViewNext(list);
-	std::cout << "\n";
-	algorithm::ViewPrev(list);
+	Node* clonedList = algorithm::Clone(list);
+
+	algorithm::ViewNext(clonedList);
 
 
 	std::cout << "\n" << "\n";
