@@ -2,17 +2,20 @@
 #include "Algorithm.h"
 
 #include <iostream>
+#include <assert.h>
 
 
 int main()
 {
-	Node* list = factory::createRandPrevList();
+    Node* list = factory::createRandPrevList();
 
-	Node* clonedList = algorithm::Clone(list);
+    Node* clonedList = algorithm::Clone(list);
 
-	algorithm::ViewNext(clonedList);
+    algorithm::ViewPrev(list);
+    std::cout << std::endl;
+    algorithm::ViewPrev(clonedList);
 
 
-	std::cout << "\n" << "\n";
-	return 0;
+    std::cout << "\n" << "\n";
+    return 0;
 }
