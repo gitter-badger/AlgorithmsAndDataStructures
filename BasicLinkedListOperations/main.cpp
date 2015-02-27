@@ -48,25 +48,24 @@ void testSeggregate()
 
 void testRotate()
 {
-	auto list = factory::createFromIncreasingN(10);
+    auto list = factory::createFromIncreasingN(10);
 
-	for(int i = 0 ; i < 10; i++)
-	{
-		std::cout << "\n";
-		algorithm::rotateRight(list, 1);
-		list.view();
-	}
+    for(int i = 0 ; i < 10; i++)
+    {
+        std::cout << "\n";
+        algorithm::rotateRight(list, 1);
+        list.view();
+    }
 }
 
 //==============================================================================================================================================================
-int main()
+int main(int* argc, char** argw)
 {
     //testSum();
     //testDelete();
     //testSetOperation();
     //testSeggregate();
-	testRotate();
+    testRotate();
 
-    std::cout << std::endl << "\n\n";
     return 0;
 }

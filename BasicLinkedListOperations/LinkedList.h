@@ -23,8 +23,8 @@ class LinkedList
         LinkedList();
         ~LinkedList();
 
-		// allow simple conversion to vector
-		operator std::vector<int>();
+        // allow simple conversion to vector
+        operator std::vector<int>();
 
         void clearAll();
         void swapData(int pos1, int pos2);
