@@ -13,8 +13,8 @@ LinkedList::LinkedList(Node* head) : head(head)
 //=============================================================================
 LinkedList::LinkedList()
 {
-	head = nullptr;
-	length = 0;
+    head = nullptr;
+    length = 0;
 }
 
 //==============================================================================================================================================================
@@ -300,10 +300,10 @@ LinkedList::Node* LinkedList::getNth(int pos) const
 //==============================================================================================================================================================
 void LinkedList::clearAll()
 {
-//     if(isCircular())
-//     {
-//         makeFlat();
-//     }
+    //     if(isCircular())
+    //     {
+    //         makeFlat();
+    //     }
 
     while(head)
     {
@@ -339,40 +339,46 @@ void LinkedList::swapData(int pos1, int pos2)
 //=============================================================================
 int LinkedList::getPosition(Node* n)
 {
-	Node* tmp = head;
-	int position = 0;
+    Node* tmp = head;
+    int position = 0;
 
-	while(tmp && tmp != n)
-	{
-		position++;
-		tmp = tmp->next;
-	}
+    while(tmp && tmp != n)
+    {
+        position++;
+        tmp = tmp->next;
+    }
 
-	if(!tmp)
-	{
-		return -1;
-	}
-	else
-	{
-		return position;
-	}
+    if(!tmp)
+    {
+        return -1;
+    }
+    else
+    {
+        return position;
+    }
 }
 
 //=============================================================================
 bool LinkedList::find(int data) const
 {
-	Node* n = head;
-	bool found = false;
+    Node* n = head;
+    bool found = false;
 
-	while(n && !found)
-	{
-		if(n->data == data)
-		{
-			found = true;
-		}
+    while(n && !found)
+    {
+        if(n->data == data)
+        {
+            found = true;
+        }
 
-		n = n->next;
-	}
+        n = n->next;
+    }
 
-	return found;
+    return found;
+}
+
+//==============================================================================================================================================================
+void LinkedList::setHead(Node* head)
+{
+    this->head = head;
 }
