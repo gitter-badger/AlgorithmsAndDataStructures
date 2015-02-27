@@ -97,13 +97,15 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConvertCircularToPlainList"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interview Questions", "Interview Questions", "{36E612CC-F820-47E2-A5F8-FA31AAE679FA}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BasicLinkedListOperations", "BasicLinkedListOperations\BasicLinkedListOperations.vcxproj", "{B6F14CB8-CCF6-4FD7-BE17-75050F90228C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinkedListOperations", "BasicLinkedListOperations\BasicLinkedListOperations.vcxproj", "{B6F14CB8-CCF6-4FD7-BE17-75050F90228C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FlattenLinkedList", "FlattenLinkedList\FlattenLinkedList.vcxproj", "{68E314E1-7E92-4EAA-B2AA-26D411E886B0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OnSameLine", "OnSameLine\OnSameLine.vcxproj", "{C10E3F57-38BC-42E8-96C3-915C80058F3B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CloneAList", "CloneAList\CloneAList.vcxproj", "{02B7915E-C407-4C7A-885A-8F3334A322C4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestLinkedListOperations", "TestLinkedListOperations\TestLinkedListOperations.vcxproj", "{059562F4-C666-4977-BE32-1CF64F16D4E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -199,6 +201,10 @@ Global
 		{02B7915E-C407-4C7A-885A-8F3334A322C4}.Debug|Win32.Build.0 = Debug|Win32
 		{02B7915E-C407-4C7A-885A-8F3334A322C4}.Release|Win32.ActiveCfg = Release|Win32
 		{02B7915E-C407-4C7A-885A-8F3334A322C4}.Release|Win32.Build.0 = Release|Win32
+		{059562F4-C666-4977-BE32-1CF64F16D4E7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{059562F4-C666-4977-BE32-1CF64F16D4E7}.Debug|Win32.Build.0 = Debug|Win32
+		{059562F4-C666-4977-BE32-1CF64F16D4E7}.Release|Win32.ActiveCfg = Release|Win32
+		{059562F4-C666-4977-BE32-1CF64F16D4E7}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -250,5 +256,6 @@ Global
 		{68E314E1-7E92-4EAA-B2AA-26D411E886B0} = {36E612CC-F820-47E2-A5F8-FA31AAE679FA}
 		{C10E3F57-38BC-42E8-96C3-915C80058F3B} = {36E612CC-F820-47E2-A5F8-FA31AAE679FA}
 		{02B7915E-C407-4C7A-885A-8F3334A322C4} = {36E612CC-F820-47E2-A5F8-FA31AAE679FA}
+		{059562F4-C666-4977-BE32-1CF64F16D4E7} = {36E612CC-F820-47E2-A5F8-FA31AAE679FA}
 	EndGlobalSection
 EndGlobal

@@ -569,5 +569,43 @@ void seggregateEvenOdds(LinkedList& linkedList)
     linkedList.setHead(head);
 }
 
+//=============================================================================
+void reverseAlternateAndAddAtEnd(LinkedList& linkedList)
+{
+
+}
+
+//=============================================================================
+void rotateLeft(LinkedList& linkedList, int k)
+{
+	LinkedList::Node* head = linkedList.getHead();
+	LinkedList::Node* tail = head;
+	LinkedList::Node* n    = head;
+	while(n)
+	{
+		tail = n;
+		n = n->next;
+	}
+	tail->next = head; // make circular 
+	
+	// rotation is just shifting head/tail
+	while(k > 0)
+	{
+		head = head->next;	
+		tail = tail->next;
+		k--;
+	}
+
+	tail->next = nullptr; // make not circular again
+
+	linkedList.setHead(head);
+}
+
+//=============================================================================
+void rotateRight(LinkedList& linkedList, int k)
+{
+	rotateLeft(linkedList, linkedList.getLenght() - k);
+}
+
 } // namespace algorithm
 

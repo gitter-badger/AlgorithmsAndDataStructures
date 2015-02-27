@@ -6,3 +6,4 @@
 *.suo
 *.ipch
 *Debug*
+SkipLists/SkipLists.vcxproj.user

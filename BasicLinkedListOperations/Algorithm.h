@@ -42,4 +42,7 @@ namespace algorithm
 	// other
 	int josephus(int n, int m);
 	void seggregateEvenOdds(LinkedList& linkedList);
+	void reverseAlternateAndAddAtEnd(LinkedList& linkedList);
+	void rotateLeft(LinkedList& linkedList, int k);
+	void rotateRight(LinkedList& linkedList, int k);
 }

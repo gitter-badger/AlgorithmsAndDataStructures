@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 class LinkedList
 {
     public:
@@ -20,6 +22,9 @@ class LinkedList
         LinkedList(Node* head);
         LinkedList();
         ~LinkedList();
+
+		// allow simple conversion to vector
+		operator std::vector<int>();
 
         void clearAll();
         void swapData(int pos1, int pos2);

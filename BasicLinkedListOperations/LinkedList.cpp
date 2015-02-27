@@ -382,3 +382,17 @@ void LinkedList::setHead(Node* head)
 {
     this->head = head;
 }
+
+//=============================================================================
+LinkedList::operator std::vector<int>()
+{
+	std::vector<int> elements;
+	Node* n = head;
+	while(n)
+	{
+		elements.push_back(n->data);
+		n = n->next;
+	}
+
+	return elements;
+}
