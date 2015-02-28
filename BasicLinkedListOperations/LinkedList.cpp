@@ -23,7 +23,7 @@ LinkedList::LinkedList()
 //==============================================================================================================================================================
 LinkedList::~LinkedList()
 {
-    //    clearAll();
+    //clearAll();
 }
 
 //==============================================================================================================================================================
@@ -301,19 +301,10 @@ LinkedList::Node* LinkedList::getNth(int pos) const
         throw exceptions::empty_list();
     }
 
-    if(pos < 0 || pos > length)
-    {
-        throw exceptions::out_of_range();
-    }
-
     int index  = 0;
     Node* curr = head;
     Node* prev = curr;
 
-    if(pos == -1)
-    {
-        return nullptr;
-    }
 
     while(index < pos)
     {
@@ -403,7 +394,7 @@ bool LinkedList::find(int data) const
 {
     if(!head)
     {
-        throw exceptions::empty_list();
+        return false;
     }
 
     Node* n = head;

@@ -306,12 +306,6 @@ public:
             LinkedList list = factory::create({0, 1, 2, 3});
             list.remove(5);
         });
-
-        Assert::ExpectException<exceptions::out_of_range>([]()
-        {
-            LinkedList list = factory::create({0, 1, 2, 3});
-            list.getNth(10);
-        });
     }
 
 private:

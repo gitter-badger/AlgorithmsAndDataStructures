@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stack>
 #include <assert.h>
+#include "Exceptions.h"
 
 #define recursive
 
