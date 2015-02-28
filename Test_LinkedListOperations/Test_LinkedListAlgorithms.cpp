@@ -245,6 +245,25 @@ public:
 
     }
 
+    //==============================================================================================================================================
+    TEST_METHOD(Conversion)
+    {
+        auto list = factory::create({0, 1, 2});
+        std::vector<int> elements = list;
+
+        LinkedList::Node* n = list.getHead();
+        auto it = elements.begin();
+
+        Assert::AreEqual(static_cast<int>(elements.size()), list.getLenght());
+
+        while(n)
+        {
+            Assert::AreEqual(*it, n->data);
+            n = n->next;
+            it++;
+        }
+
+    }
 
 private:
     void viewList(LinkedList & list)
