@@ -1,4 +1,5 @@
 #include "Algorithm.h"
+#include "Factory.h"
 
 #include <iostream>
 #include <stack>
@@ -50,11 +51,7 @@ int getLoopSize(LinkedList& linkedList)
     LinkedList::Node* head = linkedList.getHead();
     int loop = 0;
 
-    if(!isCircular(linkedList))
-    {
-        loop = -1;
-    }
-    else
+    if(isCircular(linkedList))
     {
         LinkedList::Node* slow = head;
         LinkedList::Node* fast = head;
@@ -157,6 +154,7 @@ void mergeAlternativeLists(const LinkedList& l1, LinkedList& l2)
     LinkedList::Node* n1     = l1.getHead();
     LinkedList::Node* n2     = l2.getHead();
     LinkedList::Node* prevN2 = n2;
+    LinkedList::Node* prevN1 = n1;
 
     while(n1 && n2)
     {
@@ -166,11 +164,13 @@ void mergeAlternativeLists(const LinkedList& l1, LinkedList& l2)
         n2->next = n1;
         n1->next = nextN2;
 
+        prevN1 = n1;
         n1     = nextN1;
         prevN2 = n2; // in case we need to add at the end
         n2     = nextN2;
     }
 
+    n1 = prevN1;
     while(n1)
     {
         prevN2->next = n1;
@@ -256,7 +256,6 @@ void reverseWithSwap(LinkedList& linkedList)
     {
         swapData(linkedList, i, length - i - 1);
     }
-
 }
 
 //==============================================================================================================================================================
@@ -289,6 +288,7 @@ void reverseInPlace(LinkedList& linkedList)
     }
 
     head = prev; // will be the last one
+    linkedList.setHead(head);
 }
 
 //==============================================================================================================================================================
@@ -326,7 +326,9 @@ void getNthToLastRecursive(LinkedList::Node* node, int n, int& outResult)
     if(i == n)
     {
         outResult = node->data;
+        return;
     }
+
 }
 
 //=============================================================================
@@ -424,6 +426,8 @@ void swapLinks(LinkedList& linkedList, LinkedList::Node* n1, LinkedList::Node* n
             tmp->next      = saveN2;
         }
     }
+
+    linkedList.setHead(head);
 }
 
 //=============================================================================
@@ -435,16 +439,24 @@ void swapData(LinkedList& linkedList, LinkedList::Node* n1, LinkedList::Node* n2
 //=============================================================================
 void swapData(LinkedList& linkedList, int pos1, int pos2)
 {
-    swapLinks(linkedList, linkedList.getNth(pos1), linkedList.getNth(pos2));
+    swapData(linkedList, linkedList.getNth(pos1), linkedList.getNth(pos2));
 }
 
 //=============================================================================
-void remove(LinkedList& linkedlist, int startPosition, int removeCount)
+LinkedList remove(LinkedList& linkedlist, int startPosition, int removeCount)
 {
-    assert(startPosition >= 0 && startPosition < linkedlist.getLenght());
-    assert(removeCount >= 0 && removeCount < linkedlist.getLenght() - startPosition);
+    LinkedList result = factory::create(linkedlist);
+    LinkedList::Node* head = result.getHead();
 
-    LinkedList::Node* head = linkedlist.getHead();
+    if(startPosition == 0)
+    {
+        LinkedList::Node* toRemove = head;
+        head = head->next;
+        delete toRemove;
+    }
+    removeCount--; // because we have already removed the head
+    startPosition++;
+
 
     LinkedList::Node* curr = head;
     LinkedList::Node* prev = curr;
@@ -456,6 +468,7 @@ void remove(LinkedList& linkedlist, int startPosition, int removeCount)
         curr = curr->next;
     }
 
+
     int removeIndex = 0;
     while(removeIndex < removeCount)
     {
@@ -465,6 +478,9 @@ void remove(LinkedList& linkedlist, int startPosition, int removeCount)
         delete toRemove;
         removeIndex++;
     }
+
+    linkedlist.setHead(head);
+    return result;
 }
 
 //=============================================================================

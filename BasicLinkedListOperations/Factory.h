@@ -8,8 +8,9 @@
 namespace factory
 {
 
-LinkedList createFromNumber(__int64 n);
-LinkedList createFromVector(const std::vector<int>& elements);
-LinkedList createFromIncreasingN(int n);
+LinkedList create(__int64 n);
+LinkedList create(const std::vector<int>& elements);
+LinkedList create(int n);
+LinkedList create(const LinkedList& list);
 
 } // namespace factory

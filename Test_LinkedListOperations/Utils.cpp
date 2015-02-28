@@ -2,7 +2,7 @@
 
 #include <string>
 #include <CppUnitTestLogger.h>
-
+#include <sstream>
 
 //==============================================================================================================================================================
 bool utils::areEqual(LinkedList& list, const std::vector<int>& vector)
@@ -47,5 +47,20 @@ bool utils::isContained(LinkedList& list, const std::vector<int>& vector)
     }
 
     return contained;
+}
+
+//==============================================================================================================================================
+std::string utils::convertToString(const LinkedList& l1)
+{
+    std::stringstream numberString;
+    LinkedList::Node* n = l1.getHead();
+
+    while(n)
+    {
+        numberString << std::to_string(n->data);
+        n = n->next;
+    }
+
+    return numberString.str();
 }
 

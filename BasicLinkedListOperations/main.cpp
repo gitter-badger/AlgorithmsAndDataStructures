@@ -12,8 +12,8 @@ void testSum()
 {
     __int64 n1 = 9999;
     __int64 n2 = 999999999;
-    LinkedList l1 = factory::createFromNumber(n1);
-    LinkedList l2 = factory::createFromNumber(n2);
+    LinkedList l1 = factory::create(n1);
+    LinkedList l2 = factory::create(n2);
     LinkedList l3 = algorithm::sum(l1, l2);
 
     std::cout << "list: ";
@@ -30,7 +30,7 @@ void testSum()
 //==============================================================================================================================================================
 void testDelete()
 {
-    auto list = factory::createFromIncreasingN(10);
+    auto list = factory::create(10);
     list.view();
 
     std::cout << "\n------\n";
@@ -41,14 +41,14 @@ void testDelete()
 //==============================================================================================================================================================
 void testSeggregate()
 {
-    auto list = factory::createFromIncreasingN(10);
+    auto list = factory::create(10);
     algorithm::seggregateEvenOdds(list);
     list.view();
 }
 
 void testRotate()
 {
-    auto list = factory::createFromIncreasingN(10);
+    auto list = factory::create(10);
 
     for(int i = 0 ; i < 10; i++)
     {

@@ -4,44 +4,60 @@ namespace factory
 {
 
 //==============================================================================================================================================================
-LinkedList createFromNumber(__int64 n)
+LinkedList create(__int64 n)
 {
-	LinkedList result;
+    LinkedList result;
 
-	while(n)
-	{
-		int d = n % 10;
-		result.addFront(d);
-		n /= 10;
-	}
+    while(n)
+    {
+        int d = n % 10;
+        result.addFront(d);
+        n /= 10;
+    }
 
-	return result;
+    return result;
 }
 
 //=============================================================================
-LinkedList createFromVector(const std::vector<int>& elements)
+LinkedList create(const std::vector<int>& elements)
 {
-	LinkedList result;
+    LinkedList result;
 
-	for(auto e : elements)
-	{
-		result.addBack(e);	
-	}
+    for(auto e : elements)
+    {
+        result.addBack(e);
+    }
 
-	return result;
+    return result;
 }
 
 //=============================================================================
-LinkedList createFromIncreasingN(int n)
+LinkedList create(int n)
 {
-	LinkedList result;
+    LinkedList result;
 
-	for(int i = 0; i < n; i++)
-	{
-		result.addBack(i);
-	}
+    for(int i = 0; i < n; i++)
+    {
+        result.addBack(i);
+    }
 
-	return result;
+    return result;
+}
+
+//==============================================================================================================================================
+LinkedList create(const LinkedList& list)
+{
+    LinkedList result;
+    LinkedList::Node* n = list.getHead();
+
+    while(n)
+    {
+        result.addBack(n->data);
+        n = n->next;
+    }
+
+
+    return result;
 }
 
 } // namespace factory
