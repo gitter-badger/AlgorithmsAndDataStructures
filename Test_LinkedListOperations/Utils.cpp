@@ -1,8 +1,10 @@
 #include "Utils.h"
 
-#include <string>
 #include <CppUnitTestLogger.h>
+
+#include <string>
 #include <sstream>
+
 
 //==============================================================================================================================================================
 bool utils::areEqual(LinkedList& list, const std::vector<int>& vector)
