@@ -13,7 +13,7 @@ namespace algorithm
 {
 
 //=============================================================================
-bool isCircular(LinkedList& linkedList)
+bool isCircular(const LinkedList& linkedList)
 {
     LinkedList::Node* head = linkedList.getHead();
     bool circular = false;
@@ -296,8 +296,8 @@ void reverseInPlace(LinkedList& linkedList)
 int getNthToLast(LinkedList& linkedList, int n)
 {
     LinkedList::Node* head = linkedList.getHead();
-    LinkedList::Node* n1 = head;
-    LinkedList::Node* n2 = head;
+    LinkedList::Node* n1   = head;
+    LinkedList::Node* n2   = head;
 
     for(int i = 0; i < n; i++)
     {
@@ -333,7 +333,7 @@ void getNthToLastRecursive(LinkedList::Node* node, int n, int& outResult)
 }
 
 //=============================================================================
-void viewReverseStack(LinkedList& linkedList)
+void viewReverseStack(const LinkedList& linkedList)
 {
     LinkedList::Node* head = linkedList.getHead();
 
@@ -584,12 +584,6 @@ void seggregateEvenOdds(LinkedList& linkedList)
     }
 
     linkedList.setHead(head);
-}
-
-//=============================================================================
-void reverseAlternateAndAddAtEnd(LinkedList& linkedList)
-{
-
 }
 
 //=============================================================================

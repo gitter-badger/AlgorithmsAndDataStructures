@@ -13,3 +13,5 @@ bool isContained(LinkedList& list, const std::vector<int>& vector);
 std::string convertToString(const LinkedList& l1);
 
 }
+
+
