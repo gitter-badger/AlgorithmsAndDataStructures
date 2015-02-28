@@ -179,18 +179,69 @@ public:
 
         int result = -1;
         algorithm::getNthToLastRecursive(list.getHead(), 2, result);
-        //Assert::AreEqual(result, 3);
-        Logger::WriteMessage(std::to_string(result).c_str());
-
+        Assert::AreEqual(result, 3);
 
         algorithm::getNthToLastRecursive(list.getHead(), 1, result);
-        //Assert::AreEqual(result, 4);
-        Logger::WriteMessage(std::to_string(result).c_str());
-
+        Assert::AreEqual(result, 4);
 
         algorithm::getNthToLastRecursive(list.getHead(), 5, result);
-        //Assert::AreEqual(result, 0);
-        Logger::WriteMessage(std::to_string(result).c_str());
+        Assert::AreEqual(result, 0);
+    }
+
+    //==============================================================================================================================================
+    TEST_METHOD(Insertion)
+    {
+        LinkedList l1;
+        l1.addFront(1);
+        l1.addFront(2);
+        l1.addFront(3);
+        Assert::IsTrue(utils::areEqual(l1, {3, 2, 1}));
+
+        LinkedList l2;
+        l2.addBack(1);
+        l2.addBack(2);
+        l2.addBack(3);
+        Assert::IsTrue(utils::areEqual(l2, {1, 2, 3}));
+
+        LinkedList l3;
+        l3.insert(0);
+        l3.insert(1);
+        l3.insert(3);
+        l3.insert(2);
+        l3.insert(4);
+        Assert::IsTrue(utils::areEqual(l3, {0, 1, 2, 3, 4}));
+    }
+
+    //==============================================================================================================================================
+    TEST_METHOD(Removal)
+    {
+        auto list = factory::create({0, 1, 2, 3, 4});
+        list.removeFront();
+        Assert::IsTrue(utils::areEqual(list, {1, 2, 3, 4}));
+
+        list.removeBack();
+        Assert::IsTrue(utils::areEqual(list, {1, 2, 3}));
+
+        auto sorted = factory::create({0, 0, 0, 1, 1, 2, 3, 4, 4, 4, 4, 4, 4, 5, 6, 6});
+        sorted.removeDuplicates();
+        Assert::IsTrue(utils::areEqual(sorted, {0, 1, 2, 3, 4, 5, 6}));
+
+        auto l = factory::create({0, 1, 2, 3, 4, 5});
+        l.remove(1);
+        Assert::IsTrue(utils::areEqual(l, {1, 2, 3, 4, 5}));
+
+        l = factory::create({0, 1, 2, 3, 4, 5});
+        l.remove(3);
+        Assert::IsTrue(utils::areEqual(l, {0, 1, 2, 4, 5}));
+
+        l = factory::create({0, 1, 2, 3, 4, 5});
+        l.remove(5);
+        Assert::IsTrue(utils::areEqual(l, {0, 1, 2, 3, 4}));
+    }
+
+    //==============================================================================================================================================
+    TEST_METHOD(Getters)
+    {
 
     }
 
@@ -207,7 +258,6 @@ private:
 
         Logger::WriteMessage(stream.str().c_str());
     }
-
 };
 
 }

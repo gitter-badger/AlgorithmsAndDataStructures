@@ -175,7 +175,7 @@ void LinkedList::removeBack()
 //==============================================================================================================================================================
 void LinkedList::remove(int position)
 {
-    int index = 0;
+    int index  = 0;
     Node* curr = head;
     Node* prev = curr;
 
@@ -191,15 +191,23 @@ void LinkedList::remove(int position)
         index++;
     }
 
-    if(curr == head)
+    if(prev == head)
     {
-        delete head;
-        head = nullptr;
+        Node* toRemove = head;
+        head = head->next;
+        delete toRemove;
     }
     else
     {
-        Node* toRemove = prev->next;
-        prev->next = nullptr;
+        Node* toRemove = curr;
+        if(prev->next)
+        {
+            prev->next = prev->next->next;
+        }
+        else
+        {
+            prev->next = nullptr;
+        }
 
         delete toRemove;
     }
