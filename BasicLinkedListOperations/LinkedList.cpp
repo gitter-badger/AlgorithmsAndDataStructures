@@ -1,8 +1,10 @@
 #include "LinkedList.h"
+#include "Exceptions.h"
 
 #include <iostream>
 #include <stack>
 #include <assert.h>
+#include "Algorithm.h"
 
 
 //==============================================================================================================================================================
@@ -130,6 +132,11 @@ void LinkedList::insert(int data)
 //==============================================================================================================================================================
 void LinkedList::removeFront()
 {
+    if(!head)
+    {
+        throw exceptions::empty_list();
+    }
+
     Node* toRemove = head;
     head = head->next;
 
@@ -140,14 +147,13 @@ void LinkedList::removeFront()
 //==============================================================================================================================================================
 void LinkedList::removeBack()
 {
+    if(!head)
+    {
+        throw exceptions::empty_list();
+    }
+
     Node* curr = head;
     Node* prev = curr;
-
-    // avoid empty list
-    if(!curr)
-    {
-        return;
-    }
 
     while(curr->next)
     {
@@ -175,6 +181,16 @@ void LinkedList::removeBack()
 //==============================================================================================================================================================
 void LinkedList::remove(int position)
 {
+    if(!head)
+    {
+        throw exceptions::empty_list();
+    }
+
+    if(position < 0 || position > length)
+    {
+        throw exceptions::out_of_range();
+    }
+
     int index  = 0;
     Node* curr = head;
     Node* prev = curr;
@@ -280,6 +296,16 @@ int LinkedList::getMiddle() const
 //==============================================================================================================================================================
 LinkedList::Node* LinkedList::getNth(int pos) const
 {
+    if(!head)
+    {
+        throw exceptions::empty_list();
+    }
+
+    if(pos < 0 || pos > length)
+    {
+        throw exceptions::out_of_range();
+    }
+
     int index  = 0;
     Node* curr = head;
     Node* prev = curr;
@@ -309,11 +335,6 @@ LinkedList::Node* LinkedList::getNth(int pos) const
 //==============================================================================================================================================================
 void LinkedList::clearAll()
 {
-    //     if(isCircular())
-    //     {
-    //         makeFlat();
-    //     }
-
     while(head)
     {
         removeFront();
@@ -323,12 +344,22 @@ void LinkedList::clearAll()
 //==============================================================================================================================================================
 int LinkedList::getFront() const
 {
+    if(!head)
+    {
+        throw exceptions::empty_list();
+    }
+
     return head->data;
 }
 
 //==============================================================================================================================================================
 void LinkedList::swapData(int pos1, int pos2)
 {
+    if(!head)
+    {
+        throw exceptions::empty_list();
+    }
+
     int distance = std::abs(pos2 - pos1);
     if(distance == 0) // no need to swap same node
     {
@@ -370,6 +401,11 @@ int LinkedList::getPosition(Node* n)
 //=============================================================================
 bool LinkedList::find(int data) const
 {
+    if(!head)
+    {
+        throw exceptions::empty_list();
+    }
+
     Node* n = head;
     bool found = false;
 

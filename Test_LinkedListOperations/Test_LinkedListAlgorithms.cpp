@@ -4,6 +4,7 @@
 
 #include "../BasicLinkedListOperations/Factory.h"
 #include "../BasicLinkedListOperations/Algorithm.h"
+#include "../BasicLinkedListOperations/Exceptions.h"
 
 #include <sstream>
 
@@ -237,12 +238,26 @@ public:
         l = factory::create({0, 1, 2, 3, 4, 5});
         l.remove(5);
         Assert::IsTrue(utils::areEqual(l, {0, 1, 2, 3, 4}));
+
+        l.clearAll();
+        Assert::IsTrue(utils::areEqual(l, {}));
     }
 
     //==============================================================================================================================================
     TEST_METHOD(Getters)
     {
+        auto list = factory::create({0, 1, 2, 3, 4, 5, 6});
 
+        Assert::AreEqual(list.getLenght(), 7);
+        Assert::AreEqual(list.getFront(), 0);
+
+        Assert::AreEqual(list.getNth(2)->data, 2);
+        Assert::AreEqual(list.getNth(0)->data, 0);
+        Assert::AreEqual(list.getNth(6)->data, 6);
+
+        Assert::AreEqual(list.getMiddle(), 3);
+
+        Assert::AreEqual(list.getPosition(list.getHead()), 0);
     }
 
     //==============================================================================================================================================
@@ -265,6 +280,40 @@ public:
 
     }
 
+    //==============================================================================================================================================
+    TEST_METHOD(Exceptions)
+    {
+        Assert::ExpectException<exceptions::empty_list>([]()
+        {
+            LinkedList emptyList;
+            emptyList.removeFront();
+        });
+
+        Assert::ExpectException<exceptions::empty_list>([]()
+        {
+            LinkedList emptyList;
+            emptyList.removeBack();
+        });
+
+        Assert::ExpectException<exceptions::out_of_range>([]()
+        {
+            LinkedList list = factory::create({0, 1, 2, 3});
+            list.remove(-1);
+        });
+
+        Assert::ExpectException<exceptions::out_of_range>([]()
+        {
+            LinkedList list = factory::create({0, 1, 2, 3});
+            list.remove(5);
+        });
+
+        Assert::ExpectException<exceptions::out_of_range>([]()
+        {
+            LinkedList list = factory::create({0, 1, 2, 3});
+            list.getNth(10);
+        });
+    }
+
 private:
     void viewList(LinkedList & list)
     {
@@ -280,4 +329,3 @@ private:
 };
 
 }
-
