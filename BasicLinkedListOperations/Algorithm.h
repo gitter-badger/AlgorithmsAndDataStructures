@@ -3,10 +3,11 @@
 #include "LinkedList.h"
 
 
+//! \namespace algorithm
 namespace algorithm
 {
-
 //!-----------------------------------------------------------------------------------
+//! \fn isCircular
 //! \brief     Tests if SLL is circular
 //! \param[in] linkedList The list to be tested
 //! \returns   True, if the list is circular
@@ -125,9 +126,9 @@ LinkedList Intersection(const LinkedList& l1, const LinkedList& l2);
 
 //!-----------------------------------------------------------------------------------
 //! \brief     Removes a number of elements starting with a specific position
-//! \param[in] linkedlist    The SLL from where we remove elements. It is not modified
+//! \param[in, out] linkedlist The SLL from where we remove elements. It is not modified
 //! \param[in] startPosition Starting position
-//! \param[in] removeCount   Number of elements to remove
+//! \param[in] removeCount Number of elements to remove
 //! \returns   The resulting SLL
 //! \throws    out_of_range If startPosition or removeCount do not meet criteria
 //!-----------------------------------------------------------------------------------
@@ -135,7 +136,7 @@ LinkedList remove(LinkedList& linkedlist, int startPosition, int removeCount);
 
 //!-----------------------------------------------------------------------------------
 //! \brief     Swaps 2 nodes inside a list by swapping the links. No practical!
-//! \param[in] linkedList
+//! \param[in, out] linkedList
 //! \param[in] n1
 //! \param[in] n2
 //! \returns   nothing
@@ -144,10 +145,11 @@ LinkedList remove(LinkedList& linkedlist, int startPosition, int removeCount);
 void swapLinks(LinkedList& linkedList, LinkedList::Node* n1, LinkedList::Node* n2);
 
 //!-----------------------------------------------------------------------------------
+//! \fn swapData
 //! \brief     Swaps 2 nodes inside a list by swapping the data of the nodes
-//! \param[in] linkedList SLL to be modified
-//! \param[in] n1		  Node 1 to swap
-//! \param[in] n2		  Node 2 to swap
+//! \param[in, out] linkedList SLL to be modified
+//! \param[in] n1 Node 1 to swap
+//! \param[in] n2 Node 2 to swap
 //! \returns   nothing
 //! \throws    no
 //!-----------------------------------------------------------------------------------
@@ -156,8 +158,8 @@ void swapData(LinkedList& linkedList, LinkedList::Node* n1, LinkedList::Node* n2
 //!-----------------------------------------------------------------------------------
 //! \brief     Swaps 2 nodes inside a list by swapping the links of the nodes
 //!			   Internally uses \c swapLinks
-//! \example   L = {0, 1, 2, 3, 4} pos1 = 1, pos2 = 3, => L = {0, 3, 2, 1, 4}
-//! \param[in] linkedList SLL to be modified
+//! \note   L = {0, 1, 2, 3, 4} pos1 = 1, pos2 = 3, => L = {0, 3, 2, 1, 4}
+//! \param[in, out] linkedList SLL to be modified
 //! \param[in] pos1       Position of the node 1 to swap
 //! \param[in] pos2	      Position of the node 2 to swap
 //! \returns   nothing
@@ -167,7 +169,7 @@ void swapData(LinkedList& linkedList, int pos1, int pos2);
 
 //!-----------------------------------------------------------------------------------
 //! \brief     Concatenates 2 SLL by appending first list to second list
-//! \example L1 = {0, 1, 2, 3} L2 = {0, 1, 4} => L = {0, 1, 2, 3, 0, 1, 4}
+//! \note L1 = {0, 1, 2, 3} L2 = {0, 1, 4} => L = {0, 1, 2, 3, 0, 1, 4}
 //! \param[in] l1 First SLL
 //! \param[in] l2 Second SLL
 //! \returns   A SLL representing the concatenated lists
@@ -177,10 +179,10 @@ LinkedList concatenate(const LinkedList& l1, const LinkedList& l2);
 
 //!-----------------------------------------------------------------------------------
 //! \brief     Merges L1 into L2 at alternate position
-//! \example   L1={0, 2, 4}, L2={1, 2, 3} => L = {0, 1, 2, 3, 4}
-//! \example   L1={0, 2, 4}, L2={1, 2, 3, 5, 7} => L = {0, 1, 2, 3, 4, 5, 7}
+//! \note   L1={0, 2, 4}, L2={1, 2, 3} => L = {0, 1, 2, 3, 4}
+//! \note   L1={0, 2, 4}, L2={1, 2, 3, 5, 7} => L = {0, 1, 2, 3, 4, 5, 7}
 //! \param[in]  l1 List to be merged
-//! \param[out] l2 The resulting merged lists
+//! \param[in, out] l2 The resulting merged lists
 //! \returns   nothing
 //! \throws    no
 //!-----------------------------------------------------------------------------------
@@ -189,7 +191,7 @@ void mergeAlternativeLists(const LinkedList& l1, LinkedList& l2);
 //!-----------------------------------------------------------------------------------
 //! \brief     Returns a list representing the sum of 2 lists
 //!			   It computes sum of each node from right to left and adds carry
-//!	\example   L1 = 1->9 (19), L2 = 2->1->0 (213) => L = 2->3->2 (232)
+//!	\note   L1 = 1->9 (19), L2 = 2->1->0 (213) => L = 2->3->2 (232)
 //! \param[in] l1 First number represented as a list
 //! \param[in] l2 Second number represented as a list
 //! \returns   The sum of l1 + l2 as a SLL
@@ -210,8 +212,8 @@ int josephus(int n, int m);
 
 //!-----------------------------------------------------------------------------------
 //! \brief     Splits a list in place into odds at beginning, evens at the end
-//! \example L = {0, 1, 2, 3, 4, 5, 6} => L = {0, 2, 4, 6, 1, 3, 5}
-//! \param[out] linkedList SLL to be modified
+//! \note L = {0, 1, 2, 3, 4, 5, 6} => L = {0, 2, 4, 6, 1, 3, 5}
+//! \param[in, out] linkedList SLL to be modified
 //! \returns   nothing
 //! \throws    no
 //!-----------------------------------------------------------------------------------
@@ -220,8 +222,8 @@ void seggregateEvenOdds(LinkedList& linkedList);
 //!-----------------------------------------------------------------------------------
 //! \brief     Rotates nodes to the left in place
 //!			   It quickly converts the SLL->CSLL, makes rotation and convert back SLL
-//!	\example   L = {0, 1, 2, 3}, k = 2 => L = {2, 3, 0, 1}
-//! \param[out] linkedList SLL to be rotated
+//!	\note   L = {0, 1, 2, 3}, k = 2 => L = {2, 3, 0, 1}
+//! \param[in, out] linkedList SLL to be rotated
 //! \param[in] k	      How much we rotate the elements
 //! \returns   nothing
 //! \throws    no
@@ -232,9 +234,9 @@ void rotateLeft(LinkedList& linkedList, int k);
 //! \brief     Rotates nodes to the left in place
 //!			   It quickly converts the SLL->CSLL, makes rotation and convert back SLL
 //! \note	   It uses rotateLeft internally by rotating to left (length - k)
-//!	\example   L = {0, 1, 2, 3}, k = 2 => L = {2, 3, 0, 1}
+//!	\note   L = {0, 1, 2, 3}, k = 2 => L = {2, 3, 0, 1}
 //! \param[out] linkedList SLL to be rotated
-//! \param[in] k	      How much we rotate the elements
+//! \param[in]  k	      How much we rotate the elements
 //! \returns   nothing
 //! \throws    no
 //!-----------------------------------------------------------------------------------

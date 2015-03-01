@@ -89,6 +89,7 @@
     <ClInclude Include="Exceptions.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="Macros.h" />
     <ClInclude Include="Test.h" />
   </ItemGroup>
   <ItemGroup>

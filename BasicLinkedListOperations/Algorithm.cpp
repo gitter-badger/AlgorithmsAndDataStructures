@@ -6,6 +6,7 @@
 #include <assert.h>
 #include "Exceptions.h"
 
+//! Does not do anything. It just helps us to detect in code when we have a recursive call
 #define recursive
 
 
