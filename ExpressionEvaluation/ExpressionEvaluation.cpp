@@ -4,7 +4,14 @@
 //==============================================================================================================================================
 bool expression::isOperator(const char c)
 {
-    return ((c == '+') || (c == '-') || (c == '*') || (c == '/'));
+    return ((c == '+') || (c == '-') || (c == '*') || (c == '/') || c == '$');
+}
+
+//==============================================================================================================================================
+bool expression::isUnary(const char c)
+{
+    //TODO: add next element to detect if it is -a or a - b
+    return c == '$';
 }
 
 //==============================================================================================================================================
@@ -56,22 +63,51 @@ float expression::evaluate(const std::string& infixExpression)
 
         if(isOperator(c))
         {
-            float n1 = numbers.top();
-            numbers.pop();
-
-            float n2 = numbers.top();
-            numbers.pop();
-
             float tempResult = 0;
 
-            if(c == '+')
+            if(isUnary(c))
             {
-                tempResult = n1 + n2;
-            }
+                float n1 = numbers.top();
+                numbers.pop();
 
-            if(c == '*')
+                if(c == '-')
+                {
+                    tempResult = -n1;
+                }
+
+                if(c == '$')
+                {
+                    tempResult = std::sqrt(n1);
+                }
+            }
+            else
             {
-                tempResult = n1 * n2;
+                float n1 = numbers.top();
+                numbers.pop();
+
+                float n2 = numbers.top();
+                numbers.pop();
+
+
+                if(c == '+')
+                {
+                    tempResult = n1 + n2;
+                }
+
+                if(c == '-')
+                {
+                    tempResult = n1 - n2;
+                }
+
+                if(c == '*')
+                {
+                    tempResult = n1 * n2;
+                }
+
+                if(c == '/')
+                {
+                    tempResult = n1 / n2;
+                }
             }
 
             numbers.push(tempResult);
@@ -81,3 +117,5 @@ float expression::evaluate(const std::string& infixExpression)
     result = numbers.top();
     return result;
 }
+
+
