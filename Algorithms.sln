@@ -61,7 +61,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConvertCircularToPlainList"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interview Questions", "Interview Questions", "{36E612CC-F820-47E2-A5F8-FA31AAE679FA}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinkedListOperations", "BasicLinkedListOperations\BasicLinkedListOperations.vcxproj", "{B6F14CB8-CCF6-4FD7-BE17-75050F90228C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinkedListAlgorithms", "BasicLinkedListOperations\BasicLinkedListOperations.vcxproj", "{B6F14CB8-CCF6-4FD7-BE17-75050F90228C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FlattenLinkedList", "FlattenLinkedList\FlattenLinkedList.vcxproj", "{68E314E1-7E92-4EAA-B2AA-26D411E886B0}"
 EndProject
@@ -72,6 +72,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_LinkedListOperations", "Test_LinkedListOperations\Test_LinkedListOperations.vcxproj", "{8791CE27-1D6D-4843-B5E0-BBD850A340AA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{55250D63-10DE-45FA-A808-2B5C699BCD3D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExpressionEvaluation", "ExpressionEvaluation\ExpressionEvaluation.vcxproj", "{8ED5917A-4CCC-45D7-8A64-D7D674169C6F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_ExpressionEvaluation", "Test_ExpressionEvaluation\Test_ExpressionEvaluation.vcxproj", "{CF7B1E15-EC79-4DA3-92A5-36BF6A9F9A15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -171,6 +175,14 @@ Global
 		{8791CE27-1D6D-4843-B5E0-BBD850A340AA}.Debug|Win32.Build.0 = Debug|Win32
 		{8791CE27-1D6D-4843-B5E0-BBD850A340AA}.Release|Win32.ActiveCfg = Release|Win32
 		{8791CE27-1D6D-4843-B5E0-BBD850A340AA}.Release|Win32.Build.0 = Release|Win32
+		{8ED5917A-4CCC-45D7-8A64-D7D674169C6F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8ED5917A-4CCC-45D7-8A64-D7D674169C6F}.Debug|Win32.Build.0 = Debug|Win32
+		{8ED5917A-4CCC-45D7-8A64-D7D674169C6F}.Release|Win32.ActiveCfg = Release|Win32
+		{8ED5917A-4CCC-45D7-8A64-D7D674169C6F}.Release|Win32.Build.0 = Release|Win32
+		{CF7B1E15-EC79-4DA3-92A5-36BF6A9F9A15}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CF7B1E15-EC79-4DA3-92A5-36BF6A9F9A15}.Debug|Win32.Build.0 = Debug|Win32
+		{CF7B1E15-EC79-4DA3-92A5-36BF6A9F9A15}.Release|Win32.ActiveCfg = Release|Win32
+		{CF7B1E15-EC79-4DA3-92A5-36BF6A9F9A15}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -206,5 +218,7 @@ Global
 		{C10E3F57-38BC-42E8-96C3-915C80058F3B} = {36E612CC-F820-47E2-A5F8-FA31AAE679FA}
 		{02B7915E-C407-4C7A-885A-8F3334A322C4} = {36E612CC-F820-47E2-A5F8-FA31AAE679FA}
 		{8791CE27-1D6D-4843-B5E0-BBD850A340AA} = {55250D63-10DE-45FA-A808-2B5C699BCD3D}
+		{8ED5917A-4CCC-45D7-8A64-D7D674169C6F} = {0FA3345B-C09B-4EA2-9E0A-F67C5508BC7D}
+		{CF7B1E15-EC79-4DA3-92A5-36BF6A9F9A15} = {55250D63-10DE-45FA-A808-2B5C699BCD3D}
 	EndGlobalSection
 EndGlobal
