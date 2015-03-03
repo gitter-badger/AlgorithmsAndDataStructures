@@ -46,6 +46,7 @@ void testSeggregate()
     list.view();
 }
 
+//==============================================================================================================================================================
 void testRotate()
 {
     auto list = factory::create(10);
@@ -59,13 +60,24 @@ void testRotate()
 }
 
 //==============================================================================================================================================================
+void testPalindrome()
+{
+	LinkedList list;
+	list.addBack(1);
+	list.addBack(2);
+
+	std::cout << "palindrome: " << algorithm::isPalindrom(list) << "\n";
+}
+
+//==============================================================================================================================================================
 int main(int* argc, char** argw)
 {
     //testSum();
     //testDelete();
     //testSetOperation();
     //testSeggregate();
-    testRotate();
+    //testRotate();
+	testPalindrome();
 
     return 0;
 }

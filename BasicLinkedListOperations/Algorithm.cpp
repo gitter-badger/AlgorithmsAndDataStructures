@@ -1,10 +1,11 @@
 #include "Algorithm.h"
 #include "Factory.h"
+#include "Exceptions.h"
 
 #include <iostream>
 #include <stack>
 #include <assert.h>
-#include "Exceptions.h"
+#include <stack>
 
 //! Does not do anything. It just helps us to detect in code when we have a recursive call
 #define recursive
@@ -617,6 +618,42 @@ void rotateLeft(LinkedList& linkedList, int k)
 void rotateRight(LinkedList& linkedList, int k)
 {
     rotateLeft(linkedList, linkedList.getLenght() - k);
+}
+
+//=============================================================================
+bool isPalindrom(const LinkedList& linkedList)
+{
+	LinkedList::Node* head = linkedList.getHead();
+	LinkedList::Node* slow = head;
+	LinkedList::Node* fast = head;
+	std::stack<int> stack;
+
+	while(fast)
+	{
+		stack.push(slow->data);
+
+		fast = fast->next;
+		if(!fast)
+		{
+			break;
+		}
+		fast = fast->next;
+		slow = slow->next;	
+	}
+
+	bool palindrome = true;
+	while(slow && palindrome)
+	{
+		if(slow->data != stack.top())
+		{
+			palindrome = false;
+		}
+
+		slow = slow->next;
+		stack.pop();
+	}
+
+	return palindrome;
 }
 
 } // namespace algorithm

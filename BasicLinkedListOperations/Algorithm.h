@@ -242,4 +242,7 @@ void rotateLeft(LinkedList& linkedList, int k);
 //!-----------------------------------------------------------------------------------
 void rotateRight(LinkedList& linkedList, int k);
 
+
+bool isPalindrom(const LinkedList& linkedList);
+
 } // namespace algorithm
