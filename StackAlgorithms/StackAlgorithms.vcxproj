@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8ED5917A-4CCC-45D7-8A64-D7D674169C6F}</ProjectGuid>
+    <ProjectGuid>{9643411F-2D2E-4E51-A11E-78F7C72D8182}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ExpressionEvaluation</RootNamespace>
+    <RootNamespace>StackAlgorithms</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -80,11 +80,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ExpressionEvaluation.cpp" />
+    <ClCompile Include="EfficientStack.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ExpressionEvaluation.h" />
+    <ClInclude Include="EfficientStack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,8 @@
 #include "ExpressionEvaluation.h"
 
+#include <iostream>
+#include <deque>
+
 
 //==============================================================================================================================================
 bool expression::isOperator(const char c)
@@ -15,7 +18,7 @@ bool expression::isUnary(const char c)
 }
 
 //==============================================================================================================================================
-std::string expression::convertInfixToPostfix(const std::string expression)
+std::string expression::convertInfix2Postfix(const std::string& expression)
 {
     std::stringstream result;
     std::stack<char> operators;
@@ -116,6 +119,78 @@ float expression::evaluate(const std::string& infixExpression)
 
     result = numbers.top();
     return result;
+}
+
+//==============================================================================================================================================
+std::string expression::convertPostfix2Infix(const std::string& expression)
+{
+    std::stack<std::string> infixExpression;
+
+    for(const auto c : expression)
+    {
+        if(isdigit(c))
+        {
+            infixExpression.push(std::string(1, c));
+        }
+
+        if(isOperator(c))
+        {
+            std::string n1 = infixExpression.top();
+            infixExpression.pop();
+
+            std::string n2 = infixExpression.top();
+            infixExpression.pop();
+
+            std::string result = "(" + n1 + " " + std::string(1, c) + " " + n2 + ")";
+            infixExpression.push(result);
+        }
+    }
+
+    std::string result = infixExpression.top();
+    return result;
+}
+
+//==============================================================================================================================================
+std::string expression::removeRedundantParanthesis(const std::string& expression)
+{
+    std::string simplifiedExpression = "";
+
+    std::stack<char> elements;
+
+    for(const auto c : expression)
+    {
+        if(c != ')')
+        {
+            elements.push(c);
+        }
+        else
+        {
+            std::string tempExpression = "(";
+            char nextChar;
+            int distance = 0;
+            do
+            {
+                nextChar = elements.top();
+                elements.pop();
+
+                tempExpression += nextChar;
+
+                distance++;
+            }
+            while (nextChar != '(');
+
+            if(distance != 1)
+            {
+                std::reverse(tempExpression.begin(), tempExpression.end());
+                tempExpression = tempExpression.substr(0, tempExpression.length() - 1); // remove last  ')'
+                tempExpression += ")";
+                simplifiedExpression += tempExpression;
+            }
+        }
+    }
+
+    return simplifiedExpression;
+
 }
 
 
