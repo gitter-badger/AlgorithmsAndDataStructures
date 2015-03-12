@@ -1,7 +1,5 @@
 #include "Utils.h"
 
-#include <CppUnitTestLogger.h>
-
 #include <string>
 #include <sstream>
 
@@ -16,7 +14,7 @@ bool utils::areEqual(LinkedList& list, const std::vector<int>& vector)
         return false;
     }
 
-    auto itList   = listAsVector.begin();
+    auto itList = listAsVector.begin();
     auto itVector = vector.begin();
 
     while(itList != listAsVector.end())
