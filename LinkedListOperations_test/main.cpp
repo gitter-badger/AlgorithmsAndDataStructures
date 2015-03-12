@@ -272,27 +272,17 @@ TEST(LinkedListAlgorithms, Conversion)
 //==============================================================================================================================================
 TEST(LinkedListAlgorithms, Exceptions)
 {
-    //     EXPECT_EXCEPTION<exceptions::empty_list>([]()
-    //     {
-    //         LinkedList emptyList;
-    //         emptyList.removeFront();
-    //     });
-    //
-    //     EXPECT_EXCEPTION<exceptions::empty_list>([]()
-    //     {
-    //         LinkedList emptyList;
-    //         emptyList.removeBack();
-    //     });
-    //
-    //     EXPECT_EXCEPTION<exceptions::out_of_range>([]()
-    //     {
-    //         LinkedList list = factory::create({0, 1, 2, 3});
-    //         list.remove(-1);
-    //     });
-    //
-    //     EXPECT_EXCEPTION<exceptions::out_of_range>([]()
-    //     {
-    //         LinkedList list = factory::create({0, 1, 2, 3});
-    //         list.remove(5);
-    //     });
+    auto f1 = []()
+    {
+        LinkedList emptyList;
+        emptyList.removeFront();
+    };
+    EXPECT_THROW(f1(), exceptions::empty_list);
+
+    auto f2 = []()
+    {
+        LinkedList list = factory::create({0, 1, 2, 3});
+        list.remove(5);
+    };
+    EXPECT_THROW(f2(), exceptions::out_of_range);
 }
