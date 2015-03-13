@@ -9,14 +9,14 @@
 TEST(ExpressionEvaluation, Infix2Postfix)
 {
     EXPECT_EQ(expression::convertInfix2Postfix("( 5 * ( ((9+8) * (4*6)) + 7) )"), std::string("598+46**7+*"));
-    EXPECT_EQ(expression::convertInfix2Postfix("( 1 + 2 + 3 + 4 )"), std::string("1234+++"));
+    EXPECT_EQ(expression::convertInfix2Postfix("( 1 + 2 + 3 + 4 )"),              std::string("1234+++"));
 }
 
 //==============================================================================================================================================
 TEST(ExpressionEvaluation, Postfix2Infix)
 {
     EXPECT_EQ(expression::convertPostfix2Infix("598+46**7+*"), std::string("((7 + ((6 * 4) * (8 + 9))) * 5)"));
-    EXPECT_EQ(expression::convertPostfix2Infix("1234+++"), std::string("(((4 + 3) + 2) + 1)"));
+    EXPECT_EQ(expression::convertPostfix2Infix("1234+++"),     std::string("(((4 + 3) + 2) + 1)"));
 }
 
 //==============================================================================================================================================
