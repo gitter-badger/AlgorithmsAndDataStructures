@@ -7,11 +7,13 @@
 //=============================================================================
 Node* algorithm::Clone(Node* head1)
 {
-	//hihi haha hahahahah
+
+	// give a better name
     Node* n1    = head1;
     Node* tail2 = nullptr;
     Node* head2 = nullptr;
 
+	// use this instead
     while(n1)
     {
         Node* n2 = new Node(n1->data);
