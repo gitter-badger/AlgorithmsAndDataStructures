@@ -7,6 +7,7 @@
 //=============================================================================
 Node* algorithm::Clone(Node* head1)
 {
+	//hihi
     Node* n1    = head1;
     Node* tail2 = nullptr;
     Node* head2 = nullptr;
