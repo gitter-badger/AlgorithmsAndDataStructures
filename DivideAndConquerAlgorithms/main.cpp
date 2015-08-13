@@ -5,12 +5,13 @@
 //==============================================================================================================================================
 bool findElement(const std::vector<int>& elements, int key, int start, int end)
 {
-    int mid = (start + end) / 2;
-
     if (start > end)
     {
         return false;
     }
+
+    // check the middle element
+    int mid = (start + end) / 2;
 
     if (elements[mid] == key)
     {
@@ -18,10 +19,12 @@ bool findElement(const std::vector<int>& elements, int key, int start, int end)
     }
     else if (elements[mid] < key)
     {
+        // searched element is bigger so advance to the right
         findElement(elements, key, mid + 1, end);
     }
     else
     {
+        // search element is smaller so advance to the left
         findElement(elements, key, start, mid - 1);
     }
 }
