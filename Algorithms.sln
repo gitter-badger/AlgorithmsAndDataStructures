@@ -89,6 +89,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DivideAndConquer", "DivideA
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DivideAndConquerAlgorithms", "DivideAndConquerAlgorithms\DivideAndConquerAlgorithms.vcxproj", "{2150E441-5F64-4190-BABB-6B0651819D31}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RecursiveListOperations", "RecursiveListOperations\RecursiveListOperations.vcxproj", "{6767E082-D022-4719-8419-93BC7C8A9741}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -207,6 +209,10 @@ Global
 		{2150E441-5F64-4190-BABB-6B0651819D31}.Debug|Win32.Build.0 = Debug|Win32
 		{2150E441-5F64-4190-BABB-6B0651819D31}.Release|Win32.ActiveCfg = Release|Win32
 		{2150E441-5F64-4190-BABB-6B0651819D31}.Release|Win32.Build.0 = Release|Win32
+		{6767E082-D022-4719-8419-93BC7C8A9741}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6767E082-D022-4719-8419-93BC7C8A9741}.Debug|Win32.Build.0 = Debug|Win32
+		{6767E082-D022-4719-8419-93BC7C8A9741}.Release|Win32.ActiveCfg = Release|Win32
+		{6767E082-D022-4719-8419-93BC7C8A9741}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -250,5 +256,6 @@ Global
 		{2A9910F0-C1DD-4A93-84FE-8B4C0C144BC7} = {45129E82-A76F-4294-843B-2E8E86C34F8D}
 		{68702D23-D320-4344-B4E0-25C7980F0FBA} = {45129E82-A76F-4294-843B-2E8E86C34F8D}
 		{2150E441-5F64-4190-BABB-6B0651819D31} = {68702D23-D320-4344-B4E0-25C7980F0FBA}
+		{6767E082-D022-4719-8419-93BC7C8A9741} = {2A9910F0-C1DD-4A93-84FE-8B4C0C144BC7}
 	EndGlobalSection
 EndGlobal
