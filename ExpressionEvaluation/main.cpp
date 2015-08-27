@@ -12,5 +12,7 @@ int main(int argc, char** argv)
     std::cout << std::endl << expression::removeRedundantParanthesis(expression);
     std::cout << std::endl << "\n\n\n";
 
+
+    std::cout << std::endl << expression::evaluate("598+64**7+*");
     return 0;
 }
