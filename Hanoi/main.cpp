@@ -4,7 +4,9 @@
 #include <map>
 #include <string>
 
+//----------------------------------------------------------------------------------------------------------------------------------------------
 typedef std::pair<int, int> Move;
+enum Towers {A, B, C};
 
 //----------------------------------------------------------------------------------------------------------------------------------------------
 std::vector<Move> hanoi(int n, int a, int b, int c)
@@ -32,11 +34,12 @@ std::vector<Move> hanoi(int n, int a, int b, int c)
 int main()
 {
     std::map<int, std::string> towers;
-    towers[1] = "A";
-    towers[2] = "B";
-    towers[3] = "C";
 
-    auto result = hanoi(3, 1, 2, 3);
+    towers[Towers::A] = "A";
+    towers[Towers::B] = "B";
+    towers[Towers::C] = "C";
+
+    auto result = hanoi(5, Towers::A, Towers::B, Towers::C);
     std::reverse(result.begin(), result.end());
 
 
