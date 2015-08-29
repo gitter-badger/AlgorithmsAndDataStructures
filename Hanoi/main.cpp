@@ -31,6 +31,20 @@ std::vector<Move> hanoi(int n, int a, int b, int c)
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------
+void hanoi_print(int n, int a, int b, int c)
+{
+    if (n == 1)
+    {
+        std::cout << std::endl << a << " -> " << b;
+        return;
+    }
+
+    hanoi_print(n - 1, a, c, b);
+    hanoi_print(1, a, b, c);
+    hanoi_print(n - 1, c, b, a);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------
 int main()
 {
     std::map<int, std::string> towers;
@@ -39,7 +53,7 @@ int main()
     towers[Towers::B] = "B";
     towers[Towers::C] = "C";
 
-    auto result = hanoi(5, Towers::A, Towers::B, Towers::C);
+    auto result = hanoi(3, Towers::A, Towers::B, Towers::C);
     std::reverse(result.begin(), result.end());
 
 
@@ -49,6 +63,9 @@ int main()
     }
 
     std::cout << std::endl << "Total number of moves: " << result.size();
+
+
+    hanoi_print(3, Towers::A, Towers::B, Towers::C);
 
     std::cout << std::endl << "\n\n";
     return 0;
