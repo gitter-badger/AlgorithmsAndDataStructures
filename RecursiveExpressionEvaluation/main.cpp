@@ -17,39 +17,52 @@ int apply(char op, int a, int b)
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------
-int eval(const std::string& expression, int& position)
+int eval_prefix(const std::string& prefix, int& pos)
 {
-    char op = expression[position++];
+    char op = prefix[pos++];
 
     if (std::isdigit(op))
     {
         return op - '0';
     }
 
-    int a = eval(expression, position);
-    int b = eval(expression, position);
+    int a = eval_prefix(prefix, pos);
+    int b = eval_prefix(prefix, pos);
 
     return apply(op, a, b);
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------
-int eval2(const std::string& expression, int& position)
+int eval2_prefix(const std::string& prefix, int& pos)
 {
-    char op = expression[position++];
+    char op = prefix[pos++];
 
     if(std::isdigit(op))
     {
         return op - '0';
     }
 
-    return apply(op, eval(expression, position), eval(expression, position));
+    return apply(op, eval_prefix(prefix, pos), eval_prefix(prefix, pos));
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------
+int eval_postfix(const std::string& postfix, int& pos)
+{
+    char op = postfix[pos++];
+
+    if (std::isdigit(op))
+    {
+        return eval_postfix(postfix, pos);
+    }
+
+    return apply(op, postfix[pos-1] - '0', postfix[pos-2] - '0');
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------
 int main()
 {
     int pos = 0;
-    std::cout << std::endl << eval2("*+7**46+895", pos);
+    std::cout << std::endl << eval_postfix("598+64**7+*", pos);
 
     std::cout << std::endl << "\n\n";
     return 0;
