@@ -2,6 +2,10 @@
 #include <vector>
 #include <numeric>
 #include <tuple>
+#include <algorithm>
+#include <random>
+#include <chrono>
+
 
 //----------------------------------------------------------------------------------------------------------------------------------------------
 struct Data
@@ -23,16 +27,16 @@ std::tuple<int, int, int> findMaxSum(const std::vector<int>& v)
     for (int i = 0; i < v.size(); i++)
     {
         int sum = 0;
-        left    = i;
 
         for (int j = i; j < v.size(); j++)
         {
             sum += v[j];
 
-            if(sum > maxSum)
+            if (sum > maxSum)
             {
                 maxSum = sum;
-                right = j;
+                right  = j;
+                left   = i;
             }
         }
     }
@@ -61,17 +65,18 @@ Data findMaxCrossingSubarray(const std::vector<int>& v, int low, int mid, int hi
     int rightSum = std::numeric_limits<int>::min();
     int maxRight = mid;
     sum          = 0;
-    for(int i = mid + 1; i < high; i++)
+    for(int i = mid + 1; i <= high; i++)
     {
         sum += v[i];
 
-        if(sum > rightSum)
+        if (sum > rightSum)
         {
             rightSum = sum;
             maxRight = i;
         }
     }
 
+    //std::cout << std::endl << leftSum + rightSum;
     return Data(maxLeft, maxRight, leftSum + rightSum);
 }
 
@@ -85,6 +90,7 @@ Data findMaxSubarray(const std::vector<int>& v, int low, int high)
     else
     {
         int mid    = (low + high) / 2;
+
         Data left  = findMaxSubarray(v, low, mid);
         Data right = findMaxSubarray(v, mid + 1, high);
 
@@ -110,14 +116,40 @@ Data findMaxSubarray(const std::vector<int>& v, int low, int high)
 //----------------------------------------------------------------------------------------------------------------------------------------------
 int main()
 {
-    std::vector<int> v = {13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7};
+    unsigned long size = 10000;
+    int nrIterations   = 10;
+    std::vector<int> v(size);
+
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_int_distribution<int> dist(-20, 20);
+
+    std::cout << std::endl << "Generating vector...";
+    std::generate(v.begin(), v.end(), [&dist, &mt]()
+    {
+        return dist(mt);
+    });
+    std::cout << "done";
+
     int left, right, sum;
 
-    std::tie(left, right, sum) = findMaxSum(v);
-    std::cout << std::endl << "O(n^2) Max sum " << "[" << left << ", " << right << "] = " << sum;
+    auto start2 = std::chrono::system_clock::now();
+    std::cout << std::endl << "Computing O(nlgn)...";
+    for(int i = 0; i < nrIterations; i++)
+    {
+        findMaxSubarray(v, 0, v.size() -1);
+    }
+    auto duration2 = std::chrono::system_clock::now() - start2;
+    std::cout << "done = " << std::chrono::duration_cast<std::chrono::milliseconds>(duration2).count();
 
-    Data data = findMaxSubarray(v, 0, v.size());
-    std::cout << std::endl << "O(nlgn) Max sum " << "[" << data.low << ", " << data.high << "] = " << data.sum;
+    auto start1 = std::chrono::system_clock::now();
+    std::cout << std::endl << "Computing O(n^2)...";
+    for (int i = 0; i < nrIterations; i++)
+    {
+        findMaxSum(v);
+    }
+    auto duration1 = std::chrono::system_clock::now() - start1;
+    std::cout << "done = " << std::chrono::duration_cast<std::chrono::milliseconds>(duration1).count();
 
     std::cout << std::endl << "\n\n";
     return 0;
