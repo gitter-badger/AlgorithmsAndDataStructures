@@ -1,7 +1,7 @@
 #include "MSS.h"
 
 #include <limits>
-
+#include <algorithm>
 
 //----------------------------------------------------------------------------------------------------------------------------------------------
 std::tuple<int, int, int> method1::findMaxSum(const std::vector<int>& v, int low, int high)
