@@ -12,19 +12,13 @@ std::vector<int> quick_sort(const std::vector<int>& v)
         return v;
     }
 
-    int x = v.front();
+    auto it = std::partition(v.begin(), v.end(), [&v](int e) { return e < v.front(); } );
 
     std::vector<int> v1;
-    std::copy_if(v.begin(), v.end(), std::back_inserter(v1), [x](int e)
-    {
-        return e < x;
-    });
+    std::copy(v.begin(), it, std::back_inserter(v1));
 
     std::vector<int> v2;
-    std::copy_if(v.begin(), v.end(), std::back_inserter(v2), [x](int e)
-    {
-        return e > x;
-    });
+    std::copy(it, v.end(), std::back_inserter(v1));
 
     auto v1_sort = quick_sort(v1);
     auto v2_sort = quick_sort(v2);
