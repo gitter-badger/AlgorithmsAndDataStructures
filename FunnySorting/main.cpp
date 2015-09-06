@@ -7,7 +7,7 @@
 //----------------------------------------------------------------------------------------------------------------------------------------------
 std::vector<int> quick_sort(const std::vector<int>& v)
 {
-    if(v.size() == 1)
+    if (v.size() == 1)
     {
         return v;
     }
@@ -53,8 +53,8 @@ std::vector<int> mergesort(const std::vector<int>& v)
 int main()
 {
     std::vector<int> v {1, 3, 4, 21, 2, 3, 5, 7, 8, 1, 2, 0};
-    //v = mergesort(v);
-    v = quick_sort(v);
+    v = mergesort(v);
+    //v = quick_sort(v);
 
     for(int e : v)
     {
