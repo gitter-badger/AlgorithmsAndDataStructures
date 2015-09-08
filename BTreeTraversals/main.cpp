@@ -17,26 +17,35 @@ struct Node
 };
 
 //----------------------------------------------------------------------------------------------------------------------------------------------
+void inverTree(Node* root)
+{
+    if (!root) return;
+
+    std::swap(root->left, root->right);
+
+    inverTree(root->left);
+    inverTree(root->right);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------
 Node* createBinaryTree()
 {
-    Node* a = new Node('A');
-    Node* b = new Node('B');
-    Node* c = new Node('C');
-    Node* d = new Node('D');
-    Node* e = new Node('E');
-    Node* f = new Node('F');
-    Node* g = new Node('G');
-    Node* h = new Node('H');
+    Node* n4 = new Node('4');
+    Node* n2 = new Node('2');
+    Node* n7 = new Node('7');
+    Node* n1 = new Node('1');
+    Node* n3 = new Node('3');
+    Node* n6 = new Node('6');
+    Node* n9 = new Node('9');
 
-    e->left  = d;
-    e->right = h;
-    d->left  = b;
-    b->left  = a;
-    b->right = c;
-    h->right = f;
-    f->right = g;
+    n4->left = n2;
+    n4->right = n7;
+    n2->left = n1;
+    n2->right = n3;
+    n7->left = n6;
+    n7->right = n9;
 
-    return e;
+    return n4;
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -116,14 +125,6 @@ void print_node(char x, int h)
     std::cout << x << std::endl;
 }
 
-
-/*
-
-/home/test/bin/x64/debug/win32/../../release/./././test//doc//sample//../../../../
-
-*/
-
-
 //----------------------------------------------------------------------------------------------------------------------------------------------
 void show(Node *n, int h)
 {
@@ -142,21 +143,13 @@ void show(Node *n, int h)
 //----------------------------------------------------------------------------------------------------------------------------------------------
 int main()
 {
-    auto tree = createBinaryTree();
-
-    std::cout << std::endl << "Preorder: ";
-    view_preorder(tree);
-    std::cout << std::endl << "Preorder: ";
-    view_preorder_stack(tree);
-
-    std::cout << std::endl << "Inorder: ";
+    auto tree  = createBinaryTree();
+    std::cout << std::endl << "Level: ";
     view_inorder(tree);
 
-    std::cout << std::endl << "Postorder: ";
-    view_postorder(tree);
-
+    inverTree(tree);
     std::cout << std::endl << "Level: ";
-    view_level(tree);
+    view_inorder(tree);
 
     std::cout << std::endl;
     show(tree, 3);
