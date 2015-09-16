@@ -1,5 +1,11 @@
 #include "Utils.h"
 #include "BubbleSort.h"
+#include "InsertionSort.h"
+#include "SelectionSort.h"
+#include "ShakerSort.h"
+#include "ShellSort.h"
+#include "OptimizedInsertionSort.h"
+#include "OptimizedBubbleSort.h"
 
 #include <algorithm>
 #include <iostream>
@@ -8,6 +14,7 @@
 namespace utils
 {
 
+//----------------------------------------------------------------------------------------------------------------------------------------------
 bool isSorted(const std::vector<Item>& items)
 {
     return std::is_sorted(items.begin(), items.end(), [](const Item& a, const Item& b)
@@ -71,13 +78,13 @@ std::shared_ptr<ISort> createSort(SortMethod method, const std::vector<Item>& it
 {
     switch (method)
     {
-        case SortMethod::Bubble:     return std::make_shared<BubbleSort>(items); break;
-        case SortMethod::Insertion:  return std::make_shared<BubbleSort>(items); break;
-        case SortMethod::Selection:  return std::make_shared<BubbleSort>(items); break;
-        case SortMethod::Shaker:     return std::make_shared<BubbleSort>(items); break;
-        case SortMethod::Shell:      return std::make_shared<BubbleSort>(items); break;
-        case SortMethod::OInsertion: return std::make_shared<BubbleSort>(items); break;
-        case SortMethod::OBubble:    return std::make_shared<BubbleSort>(items); break;
+        case SortMethod::Bubble:     return std::make_shared<BubbleSort>(items);             break;
+        case SortMethod::Insertion:  return std::make_shared<InsertionSort>(items);          break;
+        case SortMethod::Selection:  return std::make_shared<SelectionSort>(items);          break;
+        case SortMethod::Shaker:     return std::make_shared<ShakerSort>(items);             break;
+        case SortMethod::Shell:      return std::make_shared<ShellSort>(items);              break;
+        case SortMethod::OInsertion: return std::make_shared<OptimizedInsertionSort>(items); break;
+        case SortMethod::OBubble:    return std::make_shared<OptimizedBubbleSort>(items);    break;
 
         default:
             throw std::exception("Sorting method does not exist!");

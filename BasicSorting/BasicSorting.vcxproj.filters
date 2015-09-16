@@ -21,6 +21,9 @@
     <Filter Include="Source Files\utils">
       <UniqueIdentifier>{51fd20bb-dd8a-485c-8755-de8909325309}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{ed3a4172-bffb-4bd6-992d-3050778a0374}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -55,6 +58,9 @@
     </ClCompile>
     <ClCompile Include="SelectionSort.cpp">
       <Filter>Source Files\sorting</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils_test.cpp">
+      <Filter>Tests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -91,5 +97,8 @@
     <ClInclude Include="SortMethod.h">
       <Filter>Header Files\sorting</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
