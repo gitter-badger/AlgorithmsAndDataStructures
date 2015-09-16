@@ -13,6 +13,8 @@ namespace utils
     bool isSorted(const std::vector<Item>& items);
     bool isStable(const std::vector<Item>& before, const std::vector<Item>& after);
 
+    int sign(int n);
+
     int findPosition(const std::vector<Item>& items, const Item& item);
 
     void viewKeys(const std::vector<Item>& items);

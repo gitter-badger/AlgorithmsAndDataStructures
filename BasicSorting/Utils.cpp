@@ -26,7 +26,7 @@ bool isStable(const std::vector<Item>& before, const std::vector<Item>& after)
             int beforeDistance = findPosition(before, after[i]) - findPosition(before, after[i+1]);
             int afterDistance  = findPosition(after, after[i])  - findPosition(after, after[i+1]);
 
-            if (beforeDistance != afterDistance)
+            if (sign(beforeDistance) != sign(afterDistance))
             {
                 return false;
             }
@@ -81,6 +81,19 @@ std::shared_ptr<ISort> createSort(SortMethod method, const std::vector<Item>& it
 
         default:
             throw std::exception("Sorting method does not exist!");
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------
+int sign(int n)
+{
+    if (n < 0)
+    {
+        return -1;
+    }
+    else
+    {
+        return 1;
     }
 }
 

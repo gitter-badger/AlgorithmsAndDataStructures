@@ -28,11 +28,12 @@ int main()
     after.push_back(item1);
     after.push_back(item3);
     after.push_back(item2);
-    after.push_back(item5);
     after.push_back(item4);
+    after.push_back(item5);
 
 
-    std::cout << "Is stable: " << utils::isStable(before, after) << "\n";
+    utils::viewData(before);
+    std::cout << "\n\nIs stable: " << utils::isStable(before, after) << "\n";
     utils::viewData(after);
 
     std::cout << "\n\n";
