@@ -82,6 +82,7 @@
     <ClCompile Include="InsertionSort.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OptimizedBubbleSort.cpp" />
     <ClCompile Include="OptimizedInsertionSort.cpp" />
     <ClCompile Include="ShakerSort.cpp" />
     <ClCompile Include="ShellSort.cpp" />
@@ -92,6 +93,7 @@
     <ClInclude Include="InsertionSort.h" />
     <ClInclude Include="ISort.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="OptimizedBubbleSort.h" />
     <ClInclude Include="OptimizedInsertionSort.h" />
     <ClInclude Include="ShakerSort.h" />
     <ClInclude Include="ShellSort.h" />
