@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\sorting">
+      <UniqueIdentifier>{e87fb524-7dfa-47d6-8116-f3ffbff2a2ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sorting">
+      <UniqueIdentifier>{2dee41cb-ad3b-4ee6-a305-a071f3270ed9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utils">
+      <UniqueIdentifier>{1948e853-a9c9-403f-8aa7-b93e74b4e0a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils">
+      <UniqueIdentifier>{51fd20bb-dd8a-485c-8755-de8909325309}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BubbleSort.cpp">
+      <Filter>Source Files\sorting</Filter>
+    </ClCompile>
+    <ClCompile Include="InsertionSort.cpp">
+      <Filter>Source Files\sorting</Filter>
+    </ClCompile>
+    <ClCompile Include="ShakerSort.cpp">
+      <Filter>Source Files\sorting</Filter>
+    </ClCompile>
+    <ClCompile Include="ShellSort.cpp">
+      <Filter>Source Files\sorting</Filter>
+    </ClCompile>
+    <ClCompile Include="OptimizedInsertionSort.cpp">
+      <Filter>Source Files\sorting</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Item.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ISort.h">
+      <Filter>Header Files\sorting</Filter>
+    </ClInclude>
+    <ClInclude Include="BubbleSort.h">
+      <Filter>Header Files\sorting</Filter>
+    </ClInclude>
+    <ClInclude Include="InsertionSort.h">
+      <Filter>Header Files\sorting</Filter>
+    </ClInclude>
+    <ClInclude Include="OptimizedInsertionSort.h">
+      <Filter>Header Files\sorting</Filter>
+    </ClInclude>
+    <ClInclude Include="ShakerSort.h">
+      <Filter>Header Files\sorting</Filter>
+    </ClInclude>
+    <ClInclude Include="ShellSort.h">
+      <Filter>Header Files\sorting</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
