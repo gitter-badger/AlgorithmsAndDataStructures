@@ -2,7 +2,14 @@
 
 
 //======================================================================================================================
-std::vector<Item> ShakerSort::sort(const std::vector<Item>& items, int left, int right)
+ShakerSort::ShakerSort(const std::vector<Item>& items) : ISort(items)
 {
-    return items;
+
 }
+
+//======================================================================================================================
+void ShakerSort::sort(std::vector<Item>& items, int left, int right)
+{
+
+}
+

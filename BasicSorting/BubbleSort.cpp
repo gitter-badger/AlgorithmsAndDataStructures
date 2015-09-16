@@ -2,20 +2,22 @@
 
 
 //======================================================================================================================
-std::vector<Item> BubbleSort::sort(const std::vector<Item>& items, int left, int right)
+BubbleSort::BubbleSort(const std::vector<Item>& items) : ISort(items)
 {
-    auto v = items;
 
+}
+
+//======================================================================================================================
+void BubbleSort::sort(std::vector<Item>& items, int left, int right)
+{
     for (int i = left; i < right; i++)
     {
         for (int j = left; j < right - 1; j++)
         {
-            if (v[j].getKey() > v[j+1].getKey())
+            if (items[j].getKey() > items[j+1].getKey())
             {
-                std::swap(v[j], v[j+1]);
+                std::swap(items[j], items[j+1]);
             }
         }
     }
-
-    return v;
 }

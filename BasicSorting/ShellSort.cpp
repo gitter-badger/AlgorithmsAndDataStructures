@@ -2,7 +2,13 @@
 
 
 //======================================================================================================================
-std::vector<Item> ShellSort::sort(const std::vector<Item>& items, int left, int right)
+ShellSort::ShellSort(const std::vector<Item>& items) : ISort(items)
 {
-    return items;
+
+}
+
+//======================================================================================================================
+void ShellSort::sort(std::vector<Item>& items, int left, int right)
+{
+
 }

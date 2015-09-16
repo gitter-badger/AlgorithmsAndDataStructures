@@ -8,5 +8,13 @@
 class ISort
 {
     public:
-        virtual std::vector<Item> sort(const std::vector<Item>& items, int left, int right) = 0;
+        ISort(const std::vector<Item>& items);
+
+        std::vector<Item> sort();
+
+    private:
+        virtual void sort(std::vector<Item>& items, int left, int right) = 0;
+
+    private:
+        std::vector<Item> m_items;
 };

@@ -2,7 +2,13 @@
 
 
 //======================================================================================================================
-std::vector<Item> OptimizedBubbleSort::sort(const std::vector<Item>& items, int left, int right)
+OptimizedBubbleSort::OptimizedBubbleSort(const std::vector<Item>& items) : ISort(items)
 {
-    return items;
+
+}
+
+//======================================================================================================================
+void OptimizedBubbleSort::sort(std::vector<Item>& items, int left, int right)
+{
+
 }

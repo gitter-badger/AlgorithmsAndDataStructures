@@ -50,6 +50,9 @@
     <ClCompile Include="OptimizedBubbleSort.cpp">
       <Filter>Source Files\sorting</Filter>
     </ClCompile>
+    <ClCompile Include="ISort.cpp">
+      <Filter>Source Files\sorting</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Item.h">

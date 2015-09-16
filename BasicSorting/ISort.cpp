@@ -1,14 +1,16 @@
-#include "OptimizedInsertionSort.h"
+#include "ISort.h"
 
 
 //======================================================================================================================
-OptimizedInsertionSort::OptimizedInsertionSort(const std::vector<Item>& items) : ISort(items)
+ISort::ISort(const std::vector<Item>& items) : m_items(items)
 {
 
 }
 
 //======================================================================================================================
-void OptimizedInsertionSort::sort(std::vector<Item>& items, int left, int right)
+std::vector<Item> ISort::sort()
 {
+    this->sort(m_items, 0, m_items.size());
 
+    return m_items;
 }
