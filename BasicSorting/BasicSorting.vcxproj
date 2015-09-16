@@ -85,6 +85,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OptimizedBubbleSort.cpp" />
     <ClCompile Include="OptimizedInsertionSort.cpp" />
+    <ClCompile Include="SelectionSort.cpp" />
     <ClCompile Include="ShakerSort.cpp" />
     <ClCompile Include="ShellSort.cpp" />
     <ClCompile Include="Utils.cpp" />
@@ -96,8 +97,10 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="OptimizedBubbleSort.h" />
     <ClInclude Include="OptimizedInsertionSort.h" />
+    <ClInclude Include="SelectionSort.h" />
     <ClInclude Include="ShakerSort.h" />
     <ClInclude Include="ShellSort.h" />
+    <ClInclude Include="SortMethod.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

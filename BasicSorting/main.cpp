@@ -1,6 +1,6 @@
 #include "Item.h"
 #include "ISort.h"
-#include "BubbleSort.h"
+#include "SortMethod.h"
 #include "Utils.h"
 
 #include <iostream>
@@ -17,9 +17,9 @@ int main()
     items.emplace_back("Oksana", 5);
     items.emplace_back("Igor",   8);
 
-    std::unique_ptr<ISort> sortAlgorithm = std::unique_ptr<BubbleSort>(new BubbleSort(items));
+    auto sortMethod = utils::createSort(SortMethod::Bubble, items);
 
-    auto sorted = sortAlgorithm->sort();
+    auto sorted = sortMethod->sort();
 
     std::cout << "Is sorted: " << utils::isSorted(sorted) << "\n";
     utils::viewData(sorted);

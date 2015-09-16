@@ -1,4 +1,5 @@
 #include "Utils.h"
+#include "BubbleSort.h"
 
 #include <algorithm>
 #include <iostream>
@@ -31,6 +32,24 @@ void viewData(const std::vector<Item>& items)
     {
         std::cout << "\n";
         std::cout << item.getKey() << " -> " << item.getData();
+    }
+}
+
+//======================================================================================================================
+std::shared_ptr<ISort> createSort(SortMethod method, const std::vector<Item>& items)
+{
+    switch (method)
+    {
+        case SortMethod::Bubble:     return std::make_shared<BubbleSort>(items); break;
+        case SortMethod::Insertion:  return std::make_shared<BubbleSort>(items); break;
+        case SortMethod::Selection:  return std::make_shared<BubbleSort>(items); break;
+        case SortMethod::Shaker:     return std::make_shared<BubbleSort>(items); break;
+        case SortMethod::Shell:      return std::make_shared<BubbleSort>(items); break;
+        case SortMethod::OInsertion: return std::make_shared<BubbleSort>(items); break;
+        case SortMethod::OBubble:    return std::make_shared<BubbleSort>(items); break;
+
+        default:
+            throw std::exception("Sorting method does not exist!");
     }
 }
 
