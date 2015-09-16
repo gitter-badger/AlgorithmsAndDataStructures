@@ -9,5 +9,6 @@ enum class SortMethod
     Shaker,
     Shell,
     OInsertion,
-    OBubble
+    OBubble,
+    Bogo
 };

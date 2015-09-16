@@ -6,6 +6,7 @@
 #include "ShellSort.h"
 #include "OptimizedInsertionSort.h"
 #include "OptimizedBubbleSort.h"
+#include "BogoSort.h"
 
 #include <algorithm>
 #include <iostream>
@@ -85,6 +86,7 @@ std::shared_ptr<ISort> createSort(SortMethod method, const std::vector<Item>& it
         case SortMethod::Shell:      return std::make_shared<ShellSort>(items);              break;
         case SortMethod::OInsertion: return std::make_shared<OptimizedInsertionSort>(items); break;
         case SortMethod::OBubble:    return std::make_shared<OptimizedBubbleSort>(items);    break;
+        case SortMethod::Bogo:       return std::make_shared<BogoSort>(items);               break;
 
         default:
             throw std::exception("Sorting method does not exist!");
