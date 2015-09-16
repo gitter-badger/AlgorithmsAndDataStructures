@@ -2,7 +2,7 @@
 
 
 //======================================================================================================================
-Item::Item(int data, int key) : m_data(data), m_key(key)
+Item::Item(const std::string& data, int key) : m_data(data), m_key(key)
 {
 
 }
@@ -14,7 +14,7 @@ int Item::getKey() const
 }
 
 //======================================================================================================================
-int Item::getData() const
+std::string Item::getData() const
 {
     return m_data;
 }

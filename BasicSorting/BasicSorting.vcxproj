@@ -85,6 +85,7 @@
     <ClCompile Include="OptimizedInsertionSort.cpp" />
     <ClCompile Include="ShakerSort.cpp" />
     <ClCompile Include="ShellSort.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BubbleSort.h" />
@@ -94,6 +95,7 @@
     <ClInclude Include="OptimizedInsertionSort.h" />
     <ClInclude Include="ShakerSort.h" />
     <ClInclude Include="ShellSort.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

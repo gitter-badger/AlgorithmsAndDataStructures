@@ -6,5 +6,5 @@
 class ShellSort : public ISort
 {
     public:
-        virtual void sort(std::vector<Item>& items, int left, int right) override;
+        virtual std::vector<Item> sort(const std::vector<Item>& items, int left, int right) override;
 };

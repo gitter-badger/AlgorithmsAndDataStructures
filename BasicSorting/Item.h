@@ -6,13 +6,13 @@
 class Item
 {
     public:
-        Item(int data, int key);
+        Item(const std::string& data, int key);
 
         int getKey() const;
 
-        int getData() const;
+        std::string getData() const;
 
     private:
-        int m_key;
-        int m_data;
+        int         m_key;
+        std::string m_data;
 };
