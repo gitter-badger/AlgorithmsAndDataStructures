@@ -22,7 +22,7 @@ int main(int argc, char** argv)
                                Item("Castor", 5)
                                };
 
-    auto sortingAlgorithm = utils::createSort(SortMethod::Insertion, items);
+    auto sortingAlgorithm = utils::createSort(SortMethod::OInsertion, items);
 
     utils::viewKeys(sortingAlgorithm->sort());
 
