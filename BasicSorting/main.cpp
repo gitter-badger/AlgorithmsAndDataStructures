@@ -10,20 +10,30 @@
 
 int main()
 {
-    std::vector<Item> items;
-    items.emplace_back("Florea", 1);
-    items.emplace_back("Stefan", 3);
-    items.emplace_back("Andrei", 2);
-    items.emplace_back("Oksana", 5);
-    items.emplace_back("Igor",   8);
+    std::vector<Item> before;
+    std::vector<Item> after;
 
-    auto sortMethod = utils::createSort(SortMethod::Bubble, items);
+    Item item1("Florea", 1);
+    Item item2("Andrei", 2);
+    Item item3("Oksana", 1);
+    Item item4("Tudor",  3);
+    Item item5("Stefan", 3);
 
-    auto sorted = sortMethod->sort();
+    before.push_back(item1);
+    before.push_back(item2);
+    before.push_back(item3);
+    before.push_back(item4);
+    before.push_back(item5);
 
-    std::cout << "Is sorted: " << utils::isSorted(sorted) << "\n";
-    utils::viewData(sorted);
+    after.push_back(item1);
+    after.push_back(item3);
+    after.push_back(item2);
+    after.push_back(item5);
+    after.push_back(item4);
 
+
+    std::cout << "Is stable: " << utils::isStable(before, after) << "\n";
+    utils::viewData(after);
 
     std::cout << "\n\n";
     return 0;
