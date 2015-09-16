@@ -17,8 +17,12 @@ int main()
     items.emplace_back("Oksana", 5);
     items.emplace_back("Igor",   8);
 
-    std::cout << "Is sorted: " << utils::isSorted(items) << "\n";
-    utils::viewData(items);
+    std::unique_ptr<ISort> sortAlgorithm = std::unique_ptr<BubbleSort>(new BubbleSort());
+
+    auto sorted = sortAlgorithm->sort(items, 0, items.size());
+
+    std::cout << "Is sorted: " << utils::isSorted(sorted) << "\n";
+    utils::viewData(sorted);
 
 
     std::cout << "\n\n";
