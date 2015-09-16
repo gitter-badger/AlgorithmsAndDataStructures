@@ -53,9 +53,6 @@
     <ClCompile Include="OptimizedBubbleSort.cpp">
       <Filter>Source Files\sorting</Filter>
     </ClCompile>
-    <ClCompile Include="ISort.cpp">
-      <Filter>Source Files\sorting</Filter>
-    </ClCompile>
     <ClCompile Include="SelectionSort.cpp">
       <Filter>Source Files\sorting</Filter>
     </ClCompile>
@@ -65,13 +62,13 @@
     <ClCompile Include="BogoSort.cpp">
       <Filter>Source Files\sorting</Filter>
     </ClCompile>
+    <ClCompile Include="ISort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Item.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ISort.h">
-      <Filter>Header Files\sorting</Filter>
     </ClInclude>
     <ClInclude Include="BubbleSort.h">
       <Filter>Header Files\sorting</Filter>
@@ -102,6 +99,9 @@
     </ClInclude>
     <ClInclude Include="SortMethod.h">
       <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ISort.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
