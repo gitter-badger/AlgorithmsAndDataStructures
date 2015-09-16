@@ -19,26 +19,14 @@ bool isSorted(const std::vector<Item>& items)
 //======================================================================================================================
 bool isStable(const std::vector<Item>& before, const std::vector<Item>& after)
 {
-    std::vector<const Item*> beforeIndex;
-    for(const auto& i : before)
-    {
-        beforeIndex.push_back(&i);
-    }
-
-    std::vector<const Item*> afterIndex;
-    for(const auto& i : after)
-    {
-        afterIndex.push_back(&i);
-    }
-
     for (size_t i = 0; i < after.size() - 1; i++)
     {
         if (after[i].getKey() == after[i+1].getKey())
         {
-            int beforeDistance = findPosition(beforeIndex, &before[i]) - findPosition(beforeIndex, &before[i+1]);
-            int afterDistacen  = findPosition(afterIndex, &after[i])   - findPosition(afterIndex, &after[i+1]);
+            int beforeDistance = findPosition(before, after[i]) - findPosition(before, after[i+1]);
+            int afterDistance  = findPosition(after, after[i])  - findPosition(after, after[i+1]);
 
-            if (beforeDistance != afterDistacen)
+            if (beforeDistance != afterDistance)
             {
                 return false;
             }
@@ -49,9 +37,13 @@ bool isStable(const std::vector<Item>& before, const std::vector<Item>& after)
 }
 
 //======================================================================================================================
-int findPosition(const std::vector<const Item*>& items, const Item* item)
+int findPosition(const std::vector<Item>& items, const Item& searchItem)
 {
-    auto it = std::find(items.begin(), items.end(), item);
+    auto it = std::find_if(items.begin(), items.end(), [searchItem](const Item& i)
+    {
+        return i.getData() == searchItem.getData();
+    });
+
     return std::distance(items.begin(), it);
 }
 
